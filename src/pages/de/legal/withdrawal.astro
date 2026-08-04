@@ -38,7 +38,19 @@ import Layout from '@/layouts/Layout.astro';
       (window as any).showToast?.("Bitte eine gültige E-Mail-Adresse eingeben.");
       return;
     }
-    // TODO (step 10): POST { action: 'cancel', email, reference } to /api/reservation
-    (window as any).showToast?.("Der Stornierungsservice kommt mit dem nächsten Update online — Ihre Reservierung ist unverändert.");
+    fetch('/api/reservation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'cancel', email: emailVal, reference: refVal }),
+    })
+      .then(async (res) => {
+        const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+        if (res.ok && data?.ok) {
+          (window as any).showToast?.('Stornierung erhalten — Ihre Erstattung wird bearbeitet. Eine Bestätigungs-E-Mail ist unterwegs.');
+        } else {
+          (window as any).showToast?.(data?.error ?? 'Stornierung fehlgeschlagen — bitte erneut versuchen oder uns kontaktieren.');
+        }
+      })
+      .catch(() => (window as any).showToast?.('Stornierung fehlgeschlagen — bitte erneut versuchen oder uns kontaktieren.'));
   });
 </script>

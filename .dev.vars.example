@@ -1,0 +1,9 @@
+# Server-side secrets for `wrangler pages dev` — copy to .dev.vars (never commit real values).
+# KV bindings (RESERVATIONS, LEADS) come from wrangler.toml, not from this file.
+PAYPAL_CLIENT_ID=
+PAYPAL_SECRET=
+PAYPAL_ENV=sandbox
+RESEND_API_KEY=
+BUSINESS_EMAIL=
+# Set to "true" only for local dev to skip server-side PayPal verification. Never set in production.
+ALLOW_UNVERIFIED=false

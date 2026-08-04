@@ -37,7 +37,19 @@ import Layout from '@/layouts/Layout.astro';
       (window as any).showToast?.("Enter a valid email address.");
       return;
     }
-    // TODO (step 10): POST { action: 'cancel', email, reference } to /api/reservation
-    (window as any).showToast?.("The cancellation service is coming online with the next update — your reservation is unchanged.");
+    fetch('/api/reservation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'cancel', email: emailVal, reference: refVal }),
+    })
+      .then(async (res) => {
+        const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+        if (res.ok && data?.ok) {
+          (window as any).showToast?.('Cancellation received — your refund is being processed. A confirmation email is on its way.');
+        } else {
+          (window as any).showToast?.(data?.error ?? 'Cancellation failed — please try again or contact us.');
+        }
+      })
+      .catch(() => (window as any).showToast?.('Cancellation failed — please try again or contact us.'));
   });
 </script>

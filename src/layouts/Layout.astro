@@ -15,6 +15,7 @@ import '@/styles/tokens.css';
 import '@/styles/global.css';
 import Nav from '@/components/Nav.astro';
 import Footer from '@/components/Footer.astro';
+import CookieBanner from '@/components/CookieBanner.astro';
 
 interface Props {
   title?: string;
@@ -41,6 +42,7 @@ const { title = text.meta.title, description = text.meta.description } = Astro.p
     <Nav />
     <main id="main"><slot /></main>
     <Footer />
+    <CookieBanner />
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script>
       // toast helper + reveal-on-scroll, ported from preview L508–516 and L556–567

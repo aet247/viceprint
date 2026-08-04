@@ -1,0 +1,193 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import type { Locale } from '@/i18n/t';
+
+interface Props {
+  kind: 'privacy' | 'terms' | 'impressum' | 'cookies';
+  locale?: Locale;
+}
+
+interface Section {
+  h: string;
+  p?: string[];
+  ul?: string[];
+}
+
+const settingsFiles = import.meta.glob('../../content/site-settings.json', { eager: true, import: 'default' });
+const siteSettings = Object.values(settingsFiles)[0] as
+  | { businessEmail?: string; impressum?: Record<string, string> }
+  | undefined;
+const businessEmail = siteSettings?.businessEmail?.trim() ?? '';
+const impressumLines = Object.values(siteSettings?.impressum ?? {}).map((v) => v.trim()).filter(Boolean);
+const hasImpressum = impressumLines.length > 0;
+const showPending = import.meta.env.DEV || import.meta.env.PUBLIC_DEV_PLACEHOLDERS === 'true';
+
+const CONTENT: Record<
+  'privacy' | 'terms' | 'cookies',
+  { title: string; description: string; sections: Section[] }
+> = {
+  privacy: {
+    title: 'Privacy Policy — VICEPRINT',
+    description: 'How VICEPRINT collects, uses and protects your personal data.',
+    sections: [
+      {
+        h: 'Controller',
+        p: [
+          'VICEPRINT is the controller for the personal data processed on this site.',
+          ...(businessEmail ? [`Contact: ${businessEmail}`] : []),
+        ],
+      },
+      {
+        h: 'What we collect',
+        ul: [
+          'Contact and order data — company name, contact name, email, country and message from the contact form, and company, email and country from the reservation form.',
+          'Payment data — PayPal processes all reservation payments. PayPal shares transaction data (order ID, amount, status) with us. Card details are processed by PayPal and never reach our servers.',
+        ],
+      },
+      {
+        h: 'Why we process it',
+        ul: [
+          'To process reservations, collect the remaining balance and send confirmation, update and refund emails.',
+          'To respond to contact inquiries.',
+          'To meet legal and regulatory obligations where they apply.',
+        ],
+      },
+      {
+        h: 'Legal bases',
+        ul: [
+          'Performance of the reservation agreement (GDPR Art. 6(1)(b)).',
+          'Legitimate interest in running and securing this site and answering inquiries (Art. 6(1)(f)).',
+          'Legal obligation where retention is required by law (Art. 6(1)(c)).',
+          'Consent for optional communications, which you can withdraw at any time (Art. 6(1)(a)).',
+        ],
+      },
+      {
+        h: 'Retention',
+        p: [
+          'Contact and reservation records are kept as long as needed to fulfil the reservation, handle refunds or meet legal obligations, and are deleted once no longer required.',
+        ],
+      },
+      {
+        h: 'Your rights',
+        p: [
+          'You have the right to access, rectify, erase, restrict and port your personal data, and to object to its processing.',
+          'To exercise these rights, use the contact form on this site.',
+          'You also have the right to lodge a complaint with a supervisory authority in your EU/EEA country.',
+        ],
+      },
+      {
+        h: 'Cookies',
+        p: ['This site sets essential cookies only. See the Cookie Policy for details.'],
+      },
+    ],
+  },
+  terms: {
+    title: 'Terms & Reservation Terms — VICEPRINT',
+    description: 'The reservation terms for VICEPRINT — a reservation is not a sale, and both tiers are refundable until shipping.',
+    sections: [
+      {
+        h: 'A reservation is not a sale',
+        p: [
+          'Reserving a unit is not a completed sale. Your payment secures a unit from the first production batch and locks in founder pricing. Title to the machine passes only when your unit ships and the full price is paid.',
+        ],
+      },
+      {
+        h: 'Images and specifications',
+        p: [
+          'Images, renders and specification figures on this site are illustrative and may not reflect the final production unit. Figures marked TBD are confirmed with the manufacturing partner before your unit ships.',
+        ],
+      },
+      {
+        h: 'Refund policy and cancellation',
+        p: [
+          'Both tiers are fully refundable at any time until your unit ships. To cancel, use the withdrawal form — refunds are initiated the same day.',
+        ],
+      },
+      {
+        h: 'Ship window',
+        p: [
+          'Ship windows are estimates, not guarantees. We confirm an estimated window before the remaining balance is collected, and every reservation holder is updated by email before it is made public.',
+        ],
+      },
+      {
+        h: 'Payment schedule',
+        ul: [
+          'Reserve tier — €750 (50% deposit) is due today. The €749 balance is invoiced before shipping; for v1 this is a manual step — we send a PayPal invoice by email once your ship window is confirmed.',
+          'Founder tier — €1,499 (100% prepay) is due today. Nothing more to pay.',
+        ],
+      },
+      {
+        h: 'Contact',
+        p: ['Questions about these terms? Use the contact form on the main page.'],
+      },
+    ],
+  },
+  cookies: {
+    title: 'Cookie Policy — VICEPRINT',
+    description: 'VICEPRINT uses essential cookies only.',
+    sections: [
+      {
+        h: 'Essential cookies only',
+        p: [
+          'This site uses essential cookies only. No analytics, advertising or tracking cookies are set, and no third-party scripts are loaded.',
+        ],
+      },
+      {
+        h: 'How consent is recorded',
+        p: [
+          'Accepting the cookie banner stores your choice in your browser\'s local storage under the key viceprint-consent. The banner appears once per browser until a choice is stored.',
+        ],
+      },
+      {
+        h: 'Managing your choice',
+        p: ['Clear this site\'s data in your browser settings to show the banner again. That only affects this site.'],
+      },
+      {
+        h: 'More information',
+        p: ['See the Privacy Policy for how personal data is processed.'],
+      },
+    ],
+  },
+};
+
+const { kind, locale = 'en' } = Astro.props;
+const titles: Record<string, { title: string; description: string }> = {
+  privacy: CONTENT.privacy,
+  terms: CONTENT.terms,
+  cookies: CONTENT.cookies,
+  impressum: {
+    title: 'Impressum — VICEPRINT',
+    description: 'Impressum — legal entity details for VICEPRINT.',
+  },
+};
+const page = titles[kind];
+---
+
+<Layout title={page.title} description={page.description} locale={locale}>
+  {kind === 'impressum' ? (
+    <>
+      <!-- replace with real entity data before launch (spec §11) -->
+      <div class="legal-page wrap">
+        <h1>Impressum</h1>
+        {locale === 'de' && <p class="legal-notice">German translation pending — English version shown.</p>}
+        {hasImpressum ? (
+          impressumLines.map((line) => <p>{line}</p>)
+        ) : showPending ? (
+          <p class="legal-notice">Impressum details pending — will be published before launch.</p>
+        ) : null}
+      </div>
+    </>
+  ) : (
+    <div class="legal-page wrap">
+      <h1>{CONTENT[kind].title}</h1>
+      {locale === 'de' && <p class="legal-notice">German translation pending — English version shown.</p>}
+      {CONTENT[kind].sections.map((s) => (
+        <>
+          <h2>{s.h}</h2>
+          {s.p?.map((p) => <p>{p}</p>)}
+          {s.ul && <ul>{s.ul.map((li) => <li>{li}</li>)}</ul>}
+        </>
+      ))}
+    </div>
+  )}
+</Layout>

@@ -157,6 +157,18 @@
     "toastOk": "Thanks — we got it. We'll get back to you shortly.",
     "toastError": "Something went wrong — please try again."
   },
+  "reservation": {
+    "labels": { "company": "Studio / company name", "email": "Contact email", "country": "Country" },
+    "placeholders": { "company": "e.g. Ink & Polish Studio", "email": "you@studio.com", "country": "e.g. Germany" },
+    "submit": "Continue to PayPal",
+    "errorRequired": "Please fill in company, email and country.",
+    "errorEmail": "Please enter a valid email address.",
+    "openingSoon": "Reservations open soon — leave your email and we'll notify you.",
+    "openingSoonToast": "Reservations open soon — we'll notify you once checkout is live.",
+    "processing": "Processing…",
+    "confirmedToast": "Reservation confirmed — confirmation email on its way.",
+    "capturedToast": "Payment captured — confirmation emails are coming online shortly."
+  },
   "footer": {
     "company": "Company",
     "audienceLink": "For your business",

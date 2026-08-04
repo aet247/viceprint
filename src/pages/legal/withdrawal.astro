@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+<Layout title="Cancel a reservation — VICEPRINT" description="Cancel your VICEPRINT reservation — refund initiated the same day.">
+  <div class="legal-page wrap">
+    <h1>Cancel your reservation</h1>
+    <p>Cancel your reservation — refund initiated the same day. Both tiers are refundable until your unit ships.</p>
+    <p>Enter the email you used to reserve and the reservation reference from your confirmation email.</p>
+    <form class="legal-form" id="withdrawal-form" novalidate>
+      <div class="field">
+        <label for="withdrawal-email">Email</label>
+        <input id="withdrawal-email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="withdrawal-reference">Reservation reference</label>
+        <input id="withdrawal-reference" type="text" autocomplete="off" required />
+      </div>
+      <button class="btn btn-primary" type="submit">Request cancellation</button>
+    </form>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('withdrawal-form')!;
+  const email = document.getElementById('withdrawal-email') as HTMLInputElement;
+  const reference = document.getElementById('withdrawal-reference') as HTMLInputElement;
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailVal = email.value.trim();
+    const refVal = reference.value.trim();
+    if (!emailVal || !refVal) {
+      (window as any).showToast?.("Enter both your email and reservation reference.");
+      return;
+    }
+    if (!EMAIL_RE.test(emailVal)) {
+      (window as any).showToast?.("Enter a valid email address.");
+      return;
+    }
+    // TODO (step 10): POST { action: 'cancel', email, reference } to /api/reservation
+    (window as any).showToast?.("The cancellation service is coming online with the next update — your reservation is unchanged.");
+  });
+</script>

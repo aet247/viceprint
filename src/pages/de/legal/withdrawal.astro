@@ -1,0 +1,44 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+<Layout title="Reservierung stornieren — VICEPRINT" description="Stornieren Sie Ihre VICEPRINT-Reservierung — Erstattung am selben Tag." locale="de">
+  <div class="legal-page wrap">
+    <p class="legal-notice">German translation pending — English version shown.</p>
+    <h1>Reservierung stornieren</h1>
+    <p>Stornieren Sie Ihre Reservierung — die Erstattung wird am selben Tag eingeleitet. Beide Tarife sind bis zum Versand voll erstattbar.</p>
+    <p>Geben Sie die E-Mail-Adresse ein, mit der Sie reserviert haben, sowie die Referenz aus Ihrer Bestätigungs-E-Mail.</p>
+    <form class="legal-form" id="withdrawal-form" novalidate>
+      <div class="field">
+        <label for="withdrawal-email">E-Mail</label>
+        <input id="withdrawal-email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="withdrawal-reference">Reservierungsreferenz</label>
+        <input id="withdrawal-reference" type="text" autocomplete="off" required />
+      </div>
+      <button class="btn btn-primary" type="submit">Stornierung anfordern</button>
+    </form>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('withdrawal-form')!;
+  const email = document.getElementById('withdrawal-email') as HTMLInputElement;
+  const reference = document.getElementById('withdrawal-reference') as HTMLInputElement;
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailVal = email.value.trim();
+    const refVal = reference.value.trim();
+    if (!emailVal || !refVal) {
+      (window as any).showToast?.("Bitte E-Mail und Reservierungsreferenz angeben.");
+      return;
+    }
+    if (!EMAIL_RE.test(emailVal)) {
+      (window as any).showToast?.("Bitte eine gültige E-Mail-Adresse eingeben.");
+      return;
+    }
+    // TODO (step 10): POST { action: 'cancel', email, reference } to /api/reservation
+    (window as any).showToast?.("Der Stornierungsservice kommt mit dem nächsten Update online — Ihre Reservierung ist unverändert.");
+  });
+</script>

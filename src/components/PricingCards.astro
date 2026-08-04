@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '@/i18n/t';
 import { t } from '@/i18n/t';
+import ReservationButtons from '@/components/ReservationButtons.tsx';
 
 interface Props {
   locale: Locale;
@@ -26,8 +27,7 @@ const p = t(locale).pricing;
           <strong>{p.reserve.includesLabel}</strong>
           {p.reserve.includes}
         </div>
-        <!-- TODO (step 09): replace stub with PayPal island mounted on #paypal-reserve -->
-        <button class="btn btn-ghost" id="paypal-reserve" data-reserve data-tier="reserve">{p.reserve.cta}</button>
+        <ReservationButtons tier="reserve" locale={locale} client:load />
       </div>
       <div class="price-card featured">
         <span class="badge">{p.founder.badge}</span>
@@ -39,8 +39,7 @@ const p = t(locale).pricing;
           <strong>{p.founder.includesLabel}</strong>
           {p.founder.includes}
         </div>
-        <!-- TODO (step 09): replace stub with PayPal island mounted on #paypal-founder -->
-        <button class="btn btn-primary" id="paypal-founder" data-reserve data-tier="founder">{p.founder.cta}</button>
+        <ReservationButtons tier="founder" locale={locale} client:load />
       </div>
     </div>
   </div>

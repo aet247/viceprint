@@ -1,0 +1,27 @@
+<aside class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" hidden>
+  <p>We use essential cookies only — no tracking, no analytics, no third-party pixels. <a href="/legal/cookies">Cookie policy</a></p>
+  <button id="cookie-ok" type="button">OK</button>
+</aside>
+
+<style>
+  .cookie-banner{position:fixed;left:20px;bottom:20px;z-index:90;max-width:430px;background:var(--ink);color:#fff;padding:18px 22px;border-radius:var(--radius);box-shadow:0 14px 34px -10px rgba(0,0,0,.4);font-size:13.5px;line-height:1.6;display:flex;gap:18px;align-items:center;}
+  .cookie-banner[hidden]{display:none;}
+  .cookie-banner p{margin:0;}
+  .cookie-banner a{color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  .cookie-banner button{flex:none;background:var(--gold);color:var(--ink);border:none;border-radius:100px;padding:9px 22px;font-weight:800;font-size:13px;cursor:pointer;font-family:var(--font-body);}
+  @media (max-width:640px){.cookie-banner{left:12px;right:12px;bottom:12px;max-width:none;flex-direction:column;align-items:stretch;text-align:center;}}
+</style>
+
+<script>
+  const banner = document.getElementById('cookie-banner')!;
+  const ok = document.getElementById('cookie-ok') as HTMLButtonElement | null;
+  if (localStorage.getItem('viceprint-consent')) {
+    banner.remove();
+  } else {
+    banner.hidden = false;
+    ok?.addEventListener('click', () => {
+      localStorage.setItem('viceprint-consent', 'essential');
+      banner.remove();
+    });
+  }
+</script>

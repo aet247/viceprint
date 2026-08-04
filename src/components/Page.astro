@@ -12,6 +12,7 @@ import Specs from '@/components/Specs.astro';
 import PricingCards from '@/components/PricingCards.astro';
 import Faq from '@/components/Faq.astro';
 import ContactSection from '@/components/ContactSection.astro';
+import shipDateFaq from '@/../content/faq/ship-date.json';
 
 interface Props {
   locale: Locale;
@@ -20,8 +21,68 @@ interface Props {
 }
 const { locale, title, description } = Astro.props;
 const text = t(locale);
+
+const SITE = import.meta.env.SITE.replace(/\/+$/, '');
+const settingsFiles = import.meta.glob('../../content/site-settings.json', { eager: true, import: 'default' });
+const siteSettings = Object.values(settingsFiles)[0] as { shipWindow?: string } | undefined;
+const shipWindow = siteSettings?.shipWindow?.trim() ?? '';
+const faqFiles = import.meta.glob('../../content/faq/*.json', { eager: true, import: 'default' });
+const faqSlugs = ['reservation-meaning', 'deposit-refund', 'ship-date', 'whats-included', 'training', 'ink-safety', 'cancel'];
+const faqData = faqSlugs
+  .map((slug) => faqFiles[`../../content/faq/${slug}.json`] as { question?: string; answer?: string } | undefined)
+  .filter((f): f is { question: string; answer: string } => Boolean(f?.question && f?.answer));
+const stripHtml = (html: string) => html.replace(/<[^>]+>/g, '').trim();
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE}/#organization`,
+      name: 'VICEPRINT',
+      url: `${SITE}/`,
+      logo: `${SITE}/favicon.svg`,
+    },
+    {
+      '@type': 'Product',
+      '@id': `${SITE}/#product`,
+      name: 'VICEPRINT digital nail printer',
+      description: 'A digital nail printer built for studios — full nail art printed while they wait. Reservation against the first production batch, refundable in full until the unit ships.',
+      brand: { '@id': `${SITE}/#organization` },
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Reserve tier',
+          description: '50% deposit today — €749 balance before shipping. Refundable in full until the unit ships.',
+          price: '750',
+          priceCurrency: 'EUR',
+          availability: 'https://schema.org/PreOrder',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Founder tier',
+          description: '100% prepay today — nothing more to pay. Refundable in full until the unit ships.',
+          price: '1499',
+          priceCurrency: 'EUR',
+          availability: 'https://schema.org/PreOrder',
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${SITE}/#faq`,
+      mainEntity: faqData.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: shipWindow && f.question === shipDateFaq.question ? shipWindow : stripHtml(f.answer) },
+      })),
+    },
+  ],
+};
 ---
 <Layout title={title ?? text.meta.title} description={description ?? text.meta.description} locale={locale}>
+  {locale === 'en' && (
+    <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )}
   <Hero locale={locale} />
   <TrustBar locale={locale} />
   <HowItWorks locale={locale} />

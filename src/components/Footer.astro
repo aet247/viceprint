@@ -7,10 +7,13 @@ const text = t(locale);
 const footer = text.footer;
 
 const settingsFiles = import.meta.glob('../../content/site-settings.json', { eager: true, import: 'default' });
-const data = Object.values(settingsFiles)[0] as { compliance?: Record<string, string> } | undefined;
-const compliance = data?.compliance;
-const complianceValues = Object.values(compliance ?? {}).map(v => v.trim()).filter(Boolean);
-const hasCompliance = complianceValues.length > 0;
+const data = Object.values(settingsFiles)[0] as
+  | { businessEmail?: string; compliance?: { weeeNumber?: string; gpsrPerson?: { name?: string; address?: string } } }
+  | undefined;
+const weeeNumber = data?.compliance?.weeeNumber?.trim() ?? '';
+const gpsrName = data?.compliance?.gpsrPerson?.name?.trim() ?? '';
+const gpsrAddress = data?.compliance?.gpsrPerson?.address?.trim() ?? '';
+const businessEmail = data?.businessEmail?.trim() ?? '';
 ---
 
 <footer>
@@ -21,6 +24,7 @@ const hasCompliance = complianceValues.length > 0;
           <h4>{footer.company}</h4>
           <a href="#audience">{footer.audienceLink}</a>
           <a href="#contact">{footer.contactLink}</a>
+          {businessEmail && <a href={`mailto:${businessEmail}`}>{businessEmail}</a>}
         </div>
         <div class="footer-col">
           <h4>{footer.legal}</h4>
@@ -31,8 +35,11 @@ const hasCompliance = complianceValues.length > 0;
           <a href="/legal/withdrawal">{footer.withdrawal}</a>
         </div>
       </div>
-      {hasCompliance && (
-        <p class="compliance-note">{complianceValues.join(' · ')}</p>
+      {weeeNumber && (
+        <p class="compliance-note">WEEE registration: {weeeNumber}</p>
+      )}
+      {gpsrName && (
+        <p class="compliance-note">Responsible person (GPSR): {gpsrName}, {gpsrAddress}</p>
       )}
     </div>
     <div class="footer-bottom">

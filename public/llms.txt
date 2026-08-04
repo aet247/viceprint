@@ -1,0 +1,25 @@
+# VICEPRINT
+
+VICEPRINT builds a digital nail printer for professional studios. This is a presale landing page for the first production batch — a reservation is not a completed sale, and both reservation tiers are fully refundable until the unit ships.
+
+## Key facts
+
+- What it is: a digital nail printer that prints full nail art while the client waits — no specialist needed for detailed work, no limit on the design library.
+- Reservation model: pay a deposit or prepay now to secure a unit from the first production batch; a reservation is not a sale and is refundable in full until shipping.
+- Tiers: Reserve — €750 (50% deposit, €749 balance before shipping). Founder — €1,499 (100% prepay).
+- Both tiers are refundable at any time until the unit ships.
+- Specs are flagged for confirmation with the manufacturing partner before launch (unconfirmed figures are marked TBD, never shipped as confirmed).
+
+## Key pages
+
+- Canonical page: https://viceprint.pages.dev/
+- How it works: https://viceprint.pages.dev/#how
+- For your business: https://viceprint.pages.dev/#audience
+- Specs: https://viceprint.pages.dev/#specs
+- Pricing: https://viceprint.pages.dev/#pricing
+- FAQ: https://viceprint.pages.dev/#faq
+- Legal: https://viceprint.pages.dev/legal/privacy
+- Legal: https://viceprint.pages.dev/legal/terms
+- Legal: https://viceprint.pages.dev/legal/impressum
+- Legal: https://viceprint.pages.dev/legal/cookies
+- Legal: https://viceprint.pages.dev/legal/withdrawal

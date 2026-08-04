@@ -1,12 +1,21 @@
 ---
 import type { Locale } from '@/i18n/t';
 import { t } from '@/i18n/t';
+import shipDateFaq from '@/../content/faq/ship-date.json';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const text = t(locale);
+
+const settingsFiles = import.meta.glob('../../content/site-settings.json', { eager: true, import: 'default' });
+const siteSettings = Object.values(settingsFiles)[0] as { shipWindow?: string } | undefined;
+const shipWindow = siteSettings?.shipWindow?.trim() ?? '';
+const shipDateQuestion = shipDateFaq.question;
+const entries = text.faq.entries.map((faq) =>
+  shipWindow && faq.q === shipDateQuestion ? { ...faq, a: shipWindow } : faq,
+);
 ---
 <!-- TODO confirm with supplier (spec §4/§11): ink-safety answer claims "Cosmetic-grade ink and CE-certified hardware" — ink certification + CE cert are unconfirmed -->
 <section id="faq">
@@ -16,7 +25,7 @@ const text = t(locale);
       <h2>{text.faq.heading}</h2>
     </div>
     <div class="faq-list reveal">
-      {text.faq.entries.map((faq) => (
+      {entries.map((faq) => (
         <details>
           <summary>
             {faq.q}

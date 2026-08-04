@@ -35,6 +35,10 @@ const { title = text.meta.title, description = text.meta.description } = Astro.p
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.png" />
     <slot name="head" />
   </head>
   <body>

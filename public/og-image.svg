@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00D4B8"/>
+      <stop offset="0.55" stop-color="#7B2FF7"/>
+      <stop offset="1" stop-color="#FF2E92"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00D4B8"/>
+      <stop offset="1" stop-color="#FF2E92"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0A0A0F"/>
+  <rect x="96" y="104" width="64" height="64" rx="18" fill="url(#brand)"/>
+  <text x="192" y="163" font-family="Unbounded, sans-serif" font-weight="800" font-size="96" fill="#FFFFFF" letter-spacing="2">VICEPRINT</text>
+  <text x="192" y="238" font-family="Unbounded, sans-serif" font-weight="700" font-size="40" fill="#00D4B8" letter-spacing="1">Full nail art, printed while they wait.</text>
+  <text x="192" y="310" font-family="Manrope, sans-serif" font-weight="400" font-size="28" fill="#C8C2D6">Presale — first batch, Europe. Reserve €750 deposit · Founder €1,499 prepay.</text>
+  <g fill="url(#bar)">
+    <rect x="0" y="470" width="1200" height="12" opacity="0.9"/>
+    <rect x="0" y="494" width="1200" height="12" opacity="0.7"/>
+    <rect x="0" y="518" width="1200" height="12" opacity="0.5"/>
+    <rect x="0" y="542" width="1200" height="12" opacity="0.3"/>
+    <rect x="0" y="566" width="1200" height="12" opacity="0.15"/>
+  </g>
+</svg>

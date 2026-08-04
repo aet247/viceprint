@@ -1,17 +1,14 @@
 ---
-
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustBar from '@/components/TrustBar.astro';
+import HowItWorks from '@/components/HowItWorks.astro';
+import BlindStripe from '@/components/BlindStripe.astro';
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Hero />
+  <TrustBar />
+  <HowItWorks />
+  <div class="wrap"><BlindStripe /></div>
+  <!-- steps 04-05 append: audience, showcase, specs, pricing, faq, contact -->
+</Layout>

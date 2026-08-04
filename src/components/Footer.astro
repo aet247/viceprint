@@ -1,0 +1,40 @@
+---
+const settingsFiles = import.meta.glob('../../content/site-settings.json', { eager: true, import: 'default' });
+const data = Object.values(settingsFiles)[0] as { compliance?: Record<string, string> } | undefined;
+const compliance = data?.compliance;
+const complianceValues = Object.values(compliance ?? {}).map(v => v.trim()).filter(Boolean);
+const hasCompliance = complianceValues.length > 0;
+---
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#audience">For your business</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/legal/privacy">Privacy policy</a>
+          <a href="/legal/terms">Terms &amp; reservation terms</a>
+          <a href="/legal/impressum">Impressum</a>
+          <a href="/legal/cookies">Cookie policy</a>
+          <a href="/legal/withdrawal">Cancel a reservation</a>
+        </div>
+      </div>
+      {hasCompliance && (
+        <p class="compliance-note">{complianceValues.join(' · ')}</p>
+      )}
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> VICEPRINT. Presale only — no units currently in stock.</span>
+      <span>All specs subject to change before final production.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year')!.textContent = String(new Date().getFullYear());
+</script>

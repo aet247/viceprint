@@ -1,0 +1,37 @@
+---
+---
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#main"><span class="logo-dot"></span>VICEPRINT</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#how">How it works</a>
+      <a href="#audience">For your business</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <a href="/" aria-pressed="true" data-lang="en">EN</a>
+        <a href="/de/" aria-pressed="false" data-lang="de">DE</a>
+      </div>
+      <a class="btn btn-primary nav-cta" href="#pricing">Reserve now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const navToggle = document.getElementById('navToggle')!;
+  const navLinks = document.getElementById('navLinks')!;
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>

@@ -1,0 +1,20 @@
+---
+import specs from '@/../content/specs.json';
+---
+<section id="specs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Hardware</span>
+      <h2>What's inside</h2>
+      <p>Modeled on comparable machines — every figure is flagged for confirmation once a supplier is finalized.</p>
+    </div>
+    <table class="spec-table reveal">
+      {specs.rows.map((row) => (
+        <tr>
+          <td>{row.label}</td>
+          <td>{row.value}{row.confirmed === false && <span class="tbd">TBD</span>}</td>
+        </tr>
+      ))}
+    </table>
+  </div>
+</section>

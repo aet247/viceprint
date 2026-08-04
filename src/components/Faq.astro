@@ -1,0 +1,30 @@
+---
+const faqSlugs = ['reservation-meaning', 'deposit-refund', 'ship-date', 'whats-included', 'training', 'ink-safety', 'cancel'];
+const faqFiles = import.meta.glob('../../content/faq/*.json', { eager: true }) as Record<
+  string,
+  { default: { question: string; answer: string } }
+>;
+const faqs = faqSlugs
+  .map((slug) => faqFiles[`../../content/faq/${slug}.json`]?.default)
+  .filter((f): f is { question: string; answer: string } => Boolean(f));
+---
+<!-- TODO confirm with supplier (spec §4/§11): ink-safety answer claims "Cosmetic-grade ink and CE-certified hardware" — ink certification + CE cert are unconfirmed -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Before you reserve</span>
+      <h2>Questions, answered plainly</h2>
+    </div>
+    <div class="faq-list reveal">
+      {faqs.map((faq) => (
+        <details>
+          <summary>
+            {faq.question}
+            <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p set:html={faq.answer} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

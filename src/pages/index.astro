@@ -4,11 +4,23 @@ import Hero from '@/components/Hero.astro';
 import TrustBar from '@/components/TrustBar.astro';
 import HowItWorks from '@/components/HowItWorks.astro';
 import BlindStripe from '@/components/BlindStripe.astro';
+import AudienceTabs from '@/components/AudienceTabs.tsx';
+import DesignShowcase from '@/components/DesignShowcase.astro';
+import Specs from '@/components/Specs.astro';
+import PricingCards from '@/components/PricingCards.astro';
+import Faq from '@/components/Faq.astro';
+import ContactSection from '@/components/ContactSection.astro';
 ---
 <Layout>
   <Hero />
   <TrustBar />
   <HowItWorks />
   <div class="wrap"><BlindStripe /></div>
-  <!-- steps 04-05 append: audience, showcase, specs, pricing, faq, contact -->
+  <AudienceTabs client:load />
+  <DesignShowcase />
+  <Specs />
+  <div class="wrap"><BlindStripe /></div>
+  <PricingCards />
+  <Faq />
+  <ContactSection />
 </Layout>

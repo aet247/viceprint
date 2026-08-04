@@ -1,0 +1,10 @@
+{
+  "rows": [
+    { "label": "Print time", "value": "~15 sec / nail", "confirmed": false },
+    { "label": "Screen", "value": "10.1\" touchscreen", "confirmed": false },
+    { "label": "Connectivity", "value": "Wi-Fi", "confirmed": false },
+    { "label": "Dimensions", "value": "310 × 195 × 560 mm", "confirmed": false },
+    { "label": "Weight", "value": "~9.75 kg", "confirmed": false },
+    { "label": "Power", "value": "24V DC adapter", "confirmed": false }
+  ]
+}

@@ -1,0 +1,29 @@
+---
+---
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div>
+        <span class="eyebrow">Talk to a human</span>
+        <h2>Ordering for a chain, or want a demo first?</h2>
+        <p>Tell us a bit about your studio and we'll follow up directly — this is also the fastest route to distributor or multi-unit pricing.</p>
+      </div>
+      <form id="leadForm">
+        <div class="field"><label for="company">Studio / company name</label><input id="company" type="text" placeholder="e.g. Ink &amp; Polish Studio"></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="you@studio.com"></div>
+        <div class="field"><label for="message">What are you looking for?</label><textarea id="message" placeholder="Number of units, timeline, questions…"></textarea></div>
+        <div class="checkbox-row"><input id="wholesale" type="checkbox"><label for="wholesale">I'm interested in wholesale / distributor pricing</label></div>
+        <!-- TODO (step 07): replace static form with ContactForm.tsx island (#leadForm + name/country fields) -->
+        <button class="btn btn-light" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const leadForm = document.getElementById('leadForm');
+  leadForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    (window as any).showToast?.('Form submissions open in a later build step.');
+  });
+</script>

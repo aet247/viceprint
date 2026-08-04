@@ -1,0 +1,166 @@
+{
+  "_meta": { "status": "DRAFT — machine translation, needs native German review", "reviewer": "" },
+  "meta": {
+    "title": "VICEPRINT — Professioneller Nageldruck, jetzt reservierbar",
+    "description": "Ein digitaler Nageldrucker für Studios. Reservieren Sie Ihr Gerät — 50 % Anzahlung oder volle Founder-Vorauszahlung, beides bis zum Versand erstattbar."
+  },
+  "ui": {
+    "skip": "Zum Inhalt springen",
+    "langLabel": "Sprache",
+    "menu": "Menü"
+  },
+  "nav": {
+    "how": "So funktioniert's",
+    "audience": "Für Ihr Studio",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "cta": "Jetzt reservieren"
+  },
+  "hero": {
+    "eyebrow": "Founder-Presale — erste Charge, Europa",
+    "headline": "Komplettes Nageldesign, gedruckt, während sie warten.",
+    "sub": "Der digitale Drucker für Studios. Kein Spezialist nötig für die Detailarbeit, keine Grenzen in der Designbibliothek — von French Tips bis zu vollflächigen Illustrationen, in Sekunden fertig.",
+    "ctaPrimary": "Gerät reservieren",
+    "ctaSecondary": "Demo-Call buchen",
+    "note": "50 % Anzahlung oder volle Vorauszahlung · bis zum Versand erstattbar"
+  },
+  "trust": [
+    "CE-zertifizierte Hardware",
+    "Kosmetikgeeignete Tinte",
+    "Lieferung in die ganze EU",
+    "Founder-Preise — limitierte erste Charge"
+  ],
+  "steps": {
+    "eyebrow": "So funktioniert's",
+    "heading": "Vier Schritte, etwa eine Minute",
+    "items": [
+      { "title": "Design auswählen", "text": "Aus der In-App-Bibliothek wählen oder eigene Grafik hochladen." },
+      { "title": "Finger positionieren", "text": "Der Sensor erfasst die Nagelform und richtet automatisch aus." },
+      { "title": "Drucken", "text": "Vollfarbe, feine Details, etwa 15 Sekunden pro Nagel." },
+      { "title": "Aushärten & fertig", "text": "Standard-UV/LED-Lampe, in unter einer Minute trocken." }
+    ]
+  },
+  "audience": {
+    "eyebrow": "Für Ihr Studio",
+    "heading": "Gebaut für drei Arten von Studios",
+    "sub": "Dieselbe Maschine, unterschiedlicher Nutzen — je nachdem, was Sie betreiben.",
+    "tablistLabel": "Art des Betriebs",
+    "tabs": { "nail": "Nagelstudios", "beauty": "Kosmetikstudios", "tattoo": "Tattoo-Studios" },
+    "panels": {
+      "nail": {
+        "title": "Für Nagelstudios",
+        "text": "Bieten Sie 500+ Designs an, ohne für jedes einen Spezialisten einzustellen. Feine Linienkunst, detaillierte Blumenmotive, Freihand-Niveau — gedruckt, während die Kundin wartet, nicht für einen zweiten Termin geplant.",
+        "points": [
+          "Jede Grundmaniküre hochstufen",
+          "Kein Design ist \"zu detailreich\"",
+          "Rechnet sich innerhalb weniger Wochen durch Upsells"
+        ]
+      },
+      "beauty": {
+        "title": "Für Kosmetikstudios",
+        "text": "Bieten Sie einen eigenen Nagelservice an, ohne eine fest angestellte Nageltechnikerin — eine Maschine, bedient von dem Team, das gerade im Studio ist.",
+        "points": [
+          "Neue Einnahmequelle, keine Neueinstellung",
+          "Konstante Qualität, jede Kundin",
+          "Passt neben Ihr bestehendes Angebot"
+        ]
+      },
+      "tattoo": {
+        "title": "Für Tattoo-Studios",
+        "text": "Flash-Sheet-Details auf einem Fingernagel, in der Zeit, die es braucht, das Motiv zu erklären. Geben Sie Kundinnen eine Möglichkeit, den Stil des Studios zwischen den Terminen zu tragen.",
+        "points": [
+          "Studio-Brand-Flash als Nagelkunst verkaufen",
+          "Niedrigschwelliges Produkt für Laufkundschaft",
+          "Hält Ihre Kunst täglich vor den Kundinnen"
+        ]
+      }
+    }
+  },
+  "showcase": {
+    "eyebrow": "Designbibliothek",
+    "heading": "Eine Bibliothek, kein festes Menü",
+    "sub": "Hunderte Stile, sofort druckbereit. Platzhalter-Muster gezeigt — die Live-Galerie speist sich aus der In-App-Designbibliothek, nicht aus lizenzierten Kunstwerken.",
+    "tiles": ["Blumen", "Geometrisch", "Marmor", "Ombré", "Linienkunst", "Holograf"]
+  },
+  "specs": {
+    "eyebrow": "Hardware",
+    "heading": "Was drinsteckt",
+    "sub": "Angelehnt an vergleichbare Maschinen — jeder Wert ist zur Bestätigung markiert, sobald ein Lieferant feststeht."
+  },
+  "pricing": {
+    "eyebrow": "Founder-Presale",
+    "heading": "Die erste Charge reservieren",
+    "sub": "Anzahlung oder volle Vorauszahlung — beides bis zum Versand Ihres Geräts vollständig erstattbar.",
+    "anchor": { "label": "Regulärer Preis", "strike": "€2,199", "glue": "— Founder-Preis", "em": "€1,499" },
+    "reserve": {
+      "name": "Reserve",
+      "note": "50 % Anzahlung heute",
+      "price": "€750",
+      "fine": "€749 Restbetrag vor dem Versand · jederzeit bis dahin erstattbar",
+      "includesLabel": "Enthalten",
+      "includes": "Starter-Kit — 2 Tintenpatronen + Tragetasche",
+      "cta": "Mit 50 % reservieren"
+    },
+    "founder": {
+      "name": "Founder",
+      "note": "100 % Vorauszahlung heute",
+      "price": "€1,499",
+      "fine": "Nichts mehr zu zahlen · bis zum Versand erstattbar",
+      "includesLabel": "Enthalten",
+      "includes": "Volles Verbrauchsmaterial-Kit, 2 Jahre Garantie, 1:1-Onboarding-Call, Prioritätsversand der ersten Charge",
+      "cta": "Als Founder reservieren",
+      "badge": "Bestes Preis-Leistungs-Verhältnis"
+    }
+  },
+  "faq": {
+    "eyebrow": "Bevor Sie reservieren",
+    "heading": "Fragen, klar beantwortet",
+    "entries": [
+      { "q": "Kaufe ich das Gerät heute?", "a": "Nein — das ist eine Reservierung für die erste Produktionscharge, kein abgeschlossener Kauf. Ihre Zahlung sichert ein Gerät und den Founder-Preis." },
+      { "q": "Ist meine Anzahlung erstattbar?", "a": "Ja, vollständig, jederzeit bevor Ihr Gerät versendet wird. Ohne Wenn und Aber." },
+      { "q": "Wann wird versendet?", "a": "Sobald die erste Charge mit unserem Fertigungspartner finalisiert ist, bestätigen wir ein voraussichtliches Versandfenster. Alle Reservierungshalter erhalten diese Aktualisierung per E-Mail, bevor sie öffentlich bekannt gegeben wird." },
+      { "q": "Was ist im Lieferumfang enthalten?", "a": "Der Drucker, das Netzteil und das Starter- oder Founder-Verbrauchsmaterial-Kit je nach Tarif — die genauen Inhalte stehen in den Preiskarten oben." },
+      { "q": "Brauche ich Schulung für die Nutzung?", "a": "Keine Spezialkenntnisse nötig — der Touchscreen führt das Team durch Designauswahl und Positionierung. Founder-Tarife enthalten einen Live-1:1-Onboarding-Call." },
+      { "q": "Ist die Tinte sicher und zertifiziert?", "a": "Kosmetikgeeignete Tinte und CE-zertifizierte Hardware, konform mit den EU-Anforderungen für Salonausstattung." },
+      { "q": "Wie storniere ich eine Reservierung?", "a": "Mit der Live-Site wird eine eigene Stornierungsseite ausgeliefert — ein Formular, kein Telefonat nötig, Erstattung am selben Tag. <a href=\"/legal/withdrawal\">Zum Stornierungsformular</a>." }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Mit einem Menschen sprechen",
+    "heading": "Bestellung für eine Kette oder erst ein Demo?",
+    "sub": "Erzählen Sie uns kurz von Ihrem Studio — wir melden uns direkt. Das ist auch der schnellste Weg zu Großhandels- oder Multi-Unit-Preisen.",
+    "labels": {
+      "company": "Studio / Firmenname",
+      "name": "Ansprechpartner",
+      "email": "E-Mail",
+      "country": "Land",
+      "message": "Was suchen Sie?"
+    },
+    "placeholder": {
+      "company": "z. B. Ink & Polish Studio",
+      "name": "Ihr Name",
+      "email": "sie@studio.com",
+      "country": "z. B. Deutschland",
+      "message": "Anzahl der Geräte, Zeitplan, Fragen…"
+    },
+    "wholesale": "Ich bin an Großhandels-/Distributorpreisen interessiert",
+    "submit": "Senden",
+    "errorRequired": "Bitte füllen Sie alle Pflichtfelder aus.",
+    "errorEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "toastOk": "Danke — wir haben Ihre Nachricht erhalten. Wir melden uns in Kürze.",
+    "toastError": "Etwas ist schiefgelaufen — bitte versuchen Sie es erneut."
+  },
+  "footer": {
+    "company": "Unternehmen",
+    "audienceLink": "Für Ihr Studio",
+    "contactLink": "Kontakt",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "AGB & Reservierungsbedingungen",
+    "impressum": "Impressum",
+    "cookies": "Cookie-Richtlinie",
+    "withdrawal": "Reservierung stornieren",
+    "bottom": "© {year} VICEPRINT. Nur Presale — aktuell keine Geräte auf Lager.",
+    "specsNote": "Alle technischen Daten können sich vor der finalen Produktion ändern."
+  }
+}

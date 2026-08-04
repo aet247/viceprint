@@ -1,19 +1,24 @@
 ---
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = t(locale);
 ---
 <section id="showcase">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Design library</span>
-      <h2>A library, not a set menu</h2>
-      <p>Hundreds of styles ready to print. Placeholder patterns shown — the live gallery pulls from the in-app design library, not licensed artwork.</p>
+      <span class="eyebrow">{text.showcase.eyebrow}</span>
+      <h2>{text.showcase.heading}</h2>
+      <p>{text.showcase.sub}</p>
     </div>
     <div class="gallery reveal">
-      <div class="tile t1"><span>Floral</span></div>
-      <div class="tile t2"><span>Geometric</span></div>
-      <div class="tile t3"><span>Marble</span></div>
-      <div class="tile t4"><span>Ombré</span></div>
-      <div class="tile t5"><span>Line art</span></div>
-      <div class="tile t6"><span>Holograph</span></div>
+      {text.showcase.tiles.map((tile, i) => (
+        <div class={`tile t${i + 1}`}><span>{tile}</span></div>
+      ))}
     </div>
   </div>
 </section>

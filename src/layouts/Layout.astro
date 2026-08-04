@@ -9,6 +9,8 @@ import '@fontsource/manrope/700.css';
 import '@fontsource/manrope/800.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
 import '@/styles/tokens.css';
 import '@/styles/global.css';
 import Nav from '@/components/Nav.astro';
@@ -17,14 +19,15 @@ import Footer from '@/components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  locale?: Locale;
 }
-const { title = 'VICEPRINT — Professional nail printing, reserved',
-        description = 'A digital nail printer built for studios. Reserve your unit — 50% deposit or full founder prepay, both refundable until it ships.' } = Astro.props;
-const lang = Astro.currentLocale ?? 'en';
+const locale = (Astro.props.locale ?? Astro.currentLocale ?? 'en') as Locale;
+const text = t(locale);
+const { title = text.meta.title, description = text.meta.description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,7 +37,7 @@ const lang = Astro.currentLocale ?? 'en';
     <slot name="head" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{text.ui.skip}</a>
     <Nav />
     <main id="main"><slot /></main>
     <Footer />

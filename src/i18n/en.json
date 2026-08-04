@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "VICEPRINT — Professional nail printing, reserved",
+    "description": "A digital nail printer built for studios. Reserve your unit — 50% deposit or full founder prepay, both refundable until it ships."
+  },
+  "ui": {
+    "skip": "Skip to content",
+    "langLabel": "Language",
+    "menu": "Menu"
+  },
+  "nav": {
+    "how": "How it works",
+    "audience": "For your business",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "cta": "Reserve now"
+  },
+  "hero": {
+    "eyebrow": "Founder presale — first batch, Europe",
+    "headline": "Full nail art, printed while they wait.",
+    "sub": "The digital printer built for studios. No specialist needed for the detail work, no limit on the design library — from french tips to full illustrations, done in seconds.",
+    "ctaPrimary": "Reserve your unit",
+    "ctaSecondary": "Book a demo call",
+    "note": "50% deposit or full prepay · refundable until it ships"
+  },
+  "trust": [
+    "CE-certified hardware",
+    "Cosmetic-grade ink",
+    "Ships across the EU",
+    "Founder pricing — limited first batch"
+  ],
+  "steps": {
+    "eyebrow": "How it works",
+    "heading": "Four steps, about a minute",
+    "items": [
+      { "title": "Pick a design", "text": "Choose from the in-app library or upload your own artwork." },
+      { "title": "Position the finger", "text": "The sensor reads the nail shape and aligns automatically." },
+      { "title": "Print", "text": "Full color, fine detail, roughly 15 seconds a nail." },
+      { "title": "Cure & done", "text": "Standard UV/LED lamp, dry to the touch in under a minute." }
+    ]
+  },
+  "audience": {
+    "eyebrow": "For your business",
+    "heading": "Built for three kinds of studios",
+    "sub": "Same machine, different upside depending on what you run.",
+    "tablistLabel": "Business type",
+    "tabs": { "nail": "Nail studios", "beauty": "Beauty parlors", "tattoo": "Tattoo studios" },
+    "panels": {
+      "nail": {
+        "title": "For nail studios",
+        "text": "Offer 500+ designs without hiring a specialist for each one. Fine line art, detailed florals, freehand-level work — printed while the client waits, not booked for a second appointment.",
+        "points": [
+          "Upsell every basic manicure",
+          "No design is \"too detailed\" to offer",
+          "Pays for itself within weeks of upsells"
+        ]
+      },
+      "beauty": {
+        "title": "For beauty parlors",
+        "text": "Add a signature nail service without a dedicated nail tech on staff — one machine, run by whoever's on the floor that day.",
+        "points": [
+          "New revenue line, no new hire",
+          "Consistent quality, every client",
+          "Slots next to your existing menu"
+        ]
+      },
+      "tattoo": {
+        "title": "For tattoo studios",
+        "text": "Match flash-sheet-level detail on a fingernail, in the time it takes to explain the design. Give clients a way to wear the studio's style between sessions.",
+        "points": [
+          "Sell studio-branded flash as nail art",
+          "Low-commitment product for walk-ins",
+          "Keeps your art in front of clients daily"
+        ]
+      }
+    }
+  },
+  "showcase": {
+    "eyebrow": "Design library",
+    "heading": "A library, not a set menu",
+    "sub": "Hundreds of styles ready to print. Placeholder patterns shown — the live gallery pulls from the in-app design library, not licensed artwork.",
+    "tiles": ["Floral", "Geometric", "Marble", "Ombré", "Line art", "Holograph"]
+  },
+  "specs": {
+    "eyebrow": "Hardware",
+    "heading": "What's inside",
+    "sub": "Modeled on comparable machines — every figure is flagged for confirmation once a supplier is finalized."
+  },
+  "pricing": {
+    "eyebrow": "Founder presale",
+    "heading": "Reserve the first batch",
+    "sub": "A deposit or a full prepay — either way, fully refundable until your unit ships.",
+    "anchor": { "label": "Regular price", "strike": "€2,199", "glue": "— founder price", "em": "€1,499" },
+    "reserve": {
+      "name": "Reserve",
+      "note": "50% deposit today",
+      "price": "€750",
+      "fine": "€749 balance before shipping · refundable any time before then",
+      "includesLabel": "Includes",
+      "includes": "Starter kit — 2 ink cartridges + carry case",
+      "cta": "Reserve with 50%"
+    },
+    "founder": {
+      "name": "Founder",
+      "note": "100% prepay today",
+      "price": "€1,499",
+      "fine": "Nothing more to pay · refundable until shipped",
+      "includesLabel": "Includes",
+      "includes": "Full consumables kit, 2-year warranty, 1:1 onboarding call, priority first-batch shipping",
+      "cta": "Reserve as Founder",
+      "badge": "Best value"
+    }
+  },
+  "faq": {
+    "eyebrow": "Before you reserve",
+    "heading": "Questions, answered plainly",
+    "entries": [
+      { "q": "Am I buying the machine today?", "a": "No — this is a reservation against the first production batch, not a completed sale. Your payment secures a unit and locks in founder pricing." },
+      { "q": "Is my deposit refundable?", "a": "Yes, in full, any time before your unit ships. No questions asked." },
+      { "q": "When does it ship?", "a": "We'll confirm an estimated ship window once the first batch is finalized with our manufacturing partner. Every reservation holder gets that update by email before it's public." },
+      { "q": "What's included with the machine?", "a": "The printer, power adapter, and starter or founder consumables kit depending on your tier — see the pricing cards above for the exact contents." },
+      { "q": "Do I need training to use it?", "a": "No specialist skill required — the touchscreen walks staff through design selection and placement. Founder-tier reservations include a live 1:1 onboarding call." },
+      { "q": "Is the ink safe and certified?", "a": "Cosmetic-grade ink and CE-certified hardware, in line with EU requirements for salon equipment." },
+      { "q": "How do I cancel a reservation?", "a": "A dedicated cancellation page ships with the live site — one form, no phone call required, refund initiated the same day. <a href=\"/legal/withdrawal\">Go to the withdrawal form</a>." }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Talk to a human",
+    "heading": "Ordering for a chain, or want a demo first?",
+    "sub": "Tell us a bit about your studio and we'll follow up directly — this is also the fastest route to distributor or multi-unit pricing.",
+    "labels": {
+      "company": "Studio / company name",
+      "name": "Contact name",
+      "email": "Email",
+      "country": "Country",
+      "message": "What are you looking for?"
+    },
+    "placeholder": {
+      "company": "e.g. Ink & Polish Studio",
+      "name": "Your name",
+      "email": "you@studio.com",
+      "country": "e.g. Germany",
+      "message": "Number of units, timeline, questions…"
+    },
+    "wholesale": "I'm interested in wholesale / distributor pricing",
+    "submit": "Send",
+    "errorRequired": "Please fill in all required fields.",
+    "errorEmail": "Please enter a valid email address.",
+    "toastOk": "Thanks — we got it. We'll get back to you shortly.",
+    "toastError": "Something went wrong — please try again."
+  },
+  "footer": {
+    "company": "Company",
+    "audienceLink": "For your business",
+    "contactLink": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "terms": "Terms & reservation terms",
+    "impressum": "Impressum",
+    "cookies": "Cookie policy",
+    "withdrawal": "Cancel a reservation",
+    "bottom": "© {year} VICEPRINT. Presale only — no units currently in stock.",
+    "specsNote": "All specs subject to change before final production."
+  }
+}

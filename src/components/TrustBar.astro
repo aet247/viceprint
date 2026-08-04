@@ -1,15 +1,23 @@
 ---
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = t(locale);
 ---
 
 <section class="trust">
   <div class="wrap">
     <!-- TODO confirm with supplier before launch (spec §4/§11): CE cert, ink certification, EU shipping, batch size -->
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>CE-certified hardware</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>{text.trust[0]}</div>
     <!-- TODO confirm with supplier before launch (spec §4/§11): CE cert, ink certification, EU shipping, batch size -->
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Cosmetic-grade ink</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>{text.trust[1]}</div>
     <!-- TODO confirm with supplier before launch (spec §4/§11): CE cert, ink certification, EU shipping, batch size -->
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Ships across the EU</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>{text.trust[2]}</div>
     <!-- TODO confirm with supplier before launch (spec §4/§11): CE cert, ink certification, EU shipping, batch size -->
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Founder pricing — limited first batch</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>{text.trust[3]}</div>
   </div>
 </section>

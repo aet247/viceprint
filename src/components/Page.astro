@@ -1,0 +1,36 @@
+---
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustBar from '@/components/TrustBar.astro';
+import HowItWorks from '@/components/HowItWorks.astro';
+import BlindStripe from '@/components/BlindStripe.astro';
+import AudienceTabs from '@/components/AudienceTabs.tsx';
+import DesignShowcase from '@/components/DesignShowcase.astro';
+import Specs from '@/components/Specs.astro';
+import PricingCards from '@/components/PricingCards.astro';
+import Faq from '@/components/Faq.astro';
+import ContactSection from '@/components/ContactSection.astro';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+}
+const { locale, title, description } = Astro.props;
+const text = t(locale);
+---
+<Layout title={title ?? text.meta.title} description={description ?? text.meta.description} locale={locale}>
+  <Hero locale={locale} />
+  <TrustBar locale={locale} />
+  <HowItWorks locale={locale} />
+  <div class="wrap"><BlindStripe /></div>
+  <AudienceTabs locale={locale} client:load />
+  <DesignShowcase locale={locale} />
+  <Specs locale={locale} />
+  <div class="wrap"><BlindStripe /></div>
+  <PricingCards locale={locale} />
+  <Faq locale={locale} />
+  <ContactSection locale={locale} />
+</Layout>

@@ -1,18 +1,26 @@
 ---
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = t(locale);
 ---
 
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="reveal in">
-      <span class="eyebrow">Founder presale — first batch, Europe</span>
-      <h1>Full nail art, printed while they wait.</h1>
-      <p class="hero-sub">The digital printer built for studios. No specialist needed for the detail work, no limit on the design library — from french tips to full illustrations, done in seconds.</p>
+      <span class="eyebrow">{text.hero.eyebrow}</span>
+      <h1>{text.hero.headline}</h1>
+      <p class="hero-sub">{text.hero.sub}</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#pricing">Reserve your unit</a>
-        <a class="btn btn-ghost" href="#contact">Book a demo call</a>
+        <a class="btn btn-primary" href="#pricing">{text.hero.ctaPrimary}</a>
+        <a class="btn btn-ghost" href="#contact">{text.hero.ctaSecondary}</a>
       </div>
-      <p class="hero-note">50% deposit or full prepay · refundable until it ships</p>
+      <p class="hero-note">{text.hero.note}</p>
     </div>
     <div class="print-demo reveal in" aria-hidden="true">
       <svg viewBox="0 0 220 280" width="240" height="300">

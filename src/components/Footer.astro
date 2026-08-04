@@ -1,4 +1,11 @@
 ---
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
+
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const text = t(locale);
+const footer = text.footer;
+
 const settingsFiles = import.meta.glob('../../content/site-settings.json', { eager: true, import: 'default' });
 const data = Object.values(settingsFiles)[0] as { compliance?: Record<string, string> } | undefined;
 const compliance = data?.compliance;
@@ -11,17 +18,17 @@ const hasCompliance = complianceValues.length > 0;
     <div class="footer-top">
       <div class="footer-cols">
         <div class="footer-col">
-          <h4>Company</h4>
-          <a href="#audience">For your business</a>
-          <a href="#contact">Contact</a>
+          <h4>{footer.company}</h4>
+          <a href="#audience">{footer.audienceLink}</a>
+          <a href="#contact">{footer.contactLink}</a>
         </div>
         <div class="footer-col">
-          <h4>Legal</h4>
-          <a href="/legal/privacy">Privacy policy</a>
-          <a href="/legal/terms">Terms &amp; reservation terms</a>
-          <a href="/legal/impressum">Impressum</a>
-          <a href="/legal/cookies">Cookie policy</a>
-          <a href="/legal/withdrawal">Cancel a reservation</a>
+          <h4>{footer.legal}</h4>
+          <a href="/legal/privacy">{footer.privacy}</a>
+          <a href="/legal/terms">{footer.terms}</a>
+          <a href="/legal/impressum">{footer.impressum}</a>
+          <a href="/legal/cookies">{footer.cookies}</a>
+          <a href="/legal/withdrawal">{footer.withdrawal}</a>
         </div>
       </div>
       {hasCompliance && (
@@ -29,8 +36,8 @@ const hasCompliance = complianceValues.length > 0;
       )}
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> VICEPRINT. Presale only — no units currently in stock.</span>
-      <span>All specs subject to change before final production.</span>
+      <span set:html={footer.bottom.replace('{year}', '<span id="year"></span>')} />
+      <span>{footer.specsNote}</span>
     </div>
   </div>
 </footer>

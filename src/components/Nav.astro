@@ -1,22 +1,27 @@
 ---
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
+
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const text = t(locale);
 ---
 
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#main"><span class="logo-dot"></span>VICEPRINT</a>
     <nav class="nav-links" id="navLinks">
-      <a href="#how">How it works</a>
-      <a href="#audience">For your business</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
+      <a href="#how">{text.nav.how}</a>
+      <a href="#audience">{text.nav.audience}</a>
+      <a href="#pricing">{text.nav.pricing}</a>
+      <a href="#faq">{text.nav.faq}</a>
     </nav>
     <div class="nav-right">
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <a href="/" aria-pressed="true" data-lang="en">EN</a>
-        <a href="/de/" aria-pressed="false" data-lang="de">DE</a>
+      <div class="lang-toggle" role="group" aria-label={text.ui.langLabel}>
+        <a href="/" aria-pressed={locale === 'en' ? 'true' : 'false'} data-lang="en">EN</a>
+        <a href="/de/" aria-pressed={locale === 'de' ? 'true' : 'false'} data-lang="de">DE</a>
       </div>
-      <a class="btn btn-primary nav-cta" href="#pricing">Reserve now</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <a class="btn btn-primary nav-cta" href="#pricing">{text.nav.cta}</a>
+      <button class="nav-toggle" id="navToggle" aria-label={text.ui.menu} aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
     </div>

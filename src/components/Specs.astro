@@ -1,12 +1,20 @@
 ---
+import type { Locale } from '@/i18n/t';
+import { t } from '@/i18n/t';
 import specs from '@/../content/specs.json';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = t(locale);
 ---
 <section id="specs">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Hardware</span>
-      <h2>What's inside</h2>
-      <p>Modeled on comparable machines — every figure is flagged for confirmation once a supplier is finalized.</p>
+      <span class="eyebrow">{text.specs.eyebrow}</span>
+      <h2>{text.specs.heading}</h2>
+      <p>{text.specs.sub}</p>
     </div>
     <table class="spec-table reveal">
       {specs.rows.map((row) => (

@@ -17,12 +17,15 @@ const text = t(locale);
       <p>{text.specs.sub}</p>
     </div>
     <table class="spec-table reveal">
-      {specs.rows.map((row) => (
-        <tr>
-          <td>{row.label}</td>
-          <td>{row.value}{row.confirmed === false && <span class="tbd">TBD</span>}</td>
-        </tr>
-      ))}
+      {specs.rows.map((row, i) => {
+        const s = text.specs.rows[i] ?? row;
+        return (
+          <tr>
+            <td>{s.label}</td>
+            <td>{s.value}{row.confirmed === false && <span class="tbd">TBD</span>}</td>
+          </tr>
+        );
+      })}
     </table>
   </div>
 </section>

@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# VICEPRINT — founder presale landing page
 
-```sh
-npm create astro@latest -- --template minimal
+Single-page presale site for the VICEPRINT digital nail printer. Static-first
+Astro 5 build with React islands (audience tabs, contact form), deployed to
+Cloudflare Pages. EN at `/`, German at `/de/`.
+
+## Commands
+
+```bash
+npm install --no-audit --no-fund     # 3.2 GB box: never parallel installs/builds
+NODE_OPTIONS=--max-old-space-size=768 npm run check   # astro check (TS)
+NODE_OPTIONS=--max-old-space-size=768 npm run build   # astro build → dist/
+npm run test                         # vitest (src/lib/contact.ts handler tests)
+npm run dev                          # astro dev (island hydration broken on this
+                                     # toolchain — verify against dist/ build)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## i18n
 
-## 🚀 Project Structure
+All copy lives in `src/i18n/en.json` / `src/i18n/de.json`; `src/i18n/t.ts` is a
+tiny lookup (`t(locale)`), components take a `locale` prop, pages compose via
+`src/components/Page.astro`. Prices, brand name and URLs are untranslated.
 
-Inside of your Astro project, you'll see the following folders and files:
+`de.json` carries a `_meta.status` DRAFT flag — the German copy is a machine
+translation and needs a native German review before launch. Never ship `/de/`
+as finished German copy.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## API
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`POST /api/contact` (Astro API route, `prerender = false`) accepts
+`{ company, name, email, country, message, wholesale? }`. Validation is
+server-side (400 on missing/invalid/over-length fields; company/name/country
+≤ 200 chars, message ≤ 2000, email regex). Success returns `{ ok: true }` and
+logs the lead to the `LEADS` KV namespace + emails `BUSINESS_EMAIL` via Resend.
+Without credentials (no `RESEND_API_KEY` / `BUSINESS_EMAIL` / KV binding) it
+logs a skip message and still returns `{ ok: true }` — the build and local dev
+work before credentials exist. Logic is factored into `src/lib/contact.ts`
+(`handleContact(input, deps)` with injected KV/email deps) so step 10's
+reservation API can mirror it and tests need no network.

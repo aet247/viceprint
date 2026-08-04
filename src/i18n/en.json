@@ -84,7 +84,15 @@
   "specs": {
     "eyebrow": "Hardware",
     "heading": "What's inside",
-    "sub": "Modeled on comparable machines — every figure is flagged for confirmation once a supplier is finalized."
+    "sub": "Modeled on comparable machines — every figure is flagged for confirmation once a supplier is finalized.",
+    "rows": [
+      { "label": "Print time", "value": "~15 sec / nail" },
+      { "label": "Screen", "value": "10.1\" touchscreen" },
+      { "label": "Connectivity", "value": "Wi-Fi" },
+      { "label": "Dimensions", "value": "310 × 195 × 560 mm" },
+      { "label": "Weight", "value": "~9.75 kg" },
+      { "label": "Power", "value": "24V DC adapter" }
+    ]
   },
   "pricing": {
     "eyebrow": "Founder presale",

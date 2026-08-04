@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '@/i18n/t';
 import { t } from '@/i18n/t';
+import ContactForm from '@/components/ContactForm.tsx';
 
 interface Props {
   locale: Locale;
@@ -16,22 +17,7 @@ const text = t(locale);
         <h2>{text.contact.heading}</h2>
         <p>{text.contact.sub}</p>
       </div>
-      <form id="leadForm">
-        <div class="field"><label for="company">{text.contact.labels.company}</label><input id="company" type="text" placeholder={text.contact.placeholder.company}></div>
-        <div class="field"><label for="email">{text.contact.labels.email}</label><input id="email" type="email" placeholder={text.contact.placeholder.email}></div>
-        <div class="field"><label for="message">{text.contact.labels.message}</label><textarea id="message" placeholder={text.contact.placeholder.message}></textarea></div>
-        <div class="checkbox-row"><input id="wholesale" type="checkbox"><label for="wholesale">{text.contact.wholesale}</label></div>
-        <!-- TODO (step 07): replace static form with ContactForm.tsx island (#leadForm + name/country fields) -->
-        <button class="btn btn-light" type="submit">{text.contact.submit}</button>
-      </form>
+      <ContactForm locale={locale} client:load />
     </div>
   </div>
 </section>
-
-<script>
-  const leadForm = document.getElementById('leadForm');
-  leadForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    (window as any).showToast?.('Form submissions open in a later build step.');
-  });
-</script>

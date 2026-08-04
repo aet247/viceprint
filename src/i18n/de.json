@@ -85,7 +85,15 @@
   "specs": {
     "eyebrow": "Hardware",
     "heading": "Was drinsteckt",
-    "sub": "Angelehnt an vergleichbare Maschinen — jeder Wert ist zur Bestätigung markiert, sobald ein Lieferant feststeht."
+    "sub": "Angelehnt an vergleichbare Maschinen — jeder Wert ist zur Bestätigung markiert, sobald ein Lieferant feststeht.",
+    "rows": [
+      { "label": "Druckzeit", "value": "~15 Sek. pro Nagel" },
+      { "label": "Display", "value": "10,1\"-Touchscreen" },
+      { "label": "Konnektivität", "value": "Wi-Fi" },
+      { "label": "Abmessungen", "value": "310 × 195 × 560 mm" },
+      { "label": "Gewicht", "value": "~9,75 kg" },
+      { "label": "Stromversorgung", "value": "24V-DC-Netzteil" }
+    ]
   },
   "pricing": {
     "eyebrow": "Founder-Presale",

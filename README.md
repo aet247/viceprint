@@ -44,6 +44,9 @@ reservation API can mirror it and tests need no network.
 - **Repo:** github.com/aet247/viceprint (private). Push to `main`; deploy manually:
   `npx wrangler pages deploy dist --project-name viceprint` (build first, see Commands)
 - **KV namespaces:** `RESERVATIONS` (`res-*` keys) + `LEADS` (contact leads) — IDs in `wrangler.toml`
+  ⚠️ `wrangler kv key *` commands default to a **local simulation** — always pass
+  `--remote` (e.g. `npx wrangler kv key list --namespace-id <id> --remote`) to
+  inspect the real namespaces.
 - **Secrets** (Cloudflare Pages → Settings → Environment variables, never in git):
   `RESEND_API_KEY` (set), `PAYPAL_CLIENT_ID`, `PAYPAL_SECRET` (pending)
 - **Build-time public var:** `PUBLIC_PAYPAL_CLIENT_ID` — empty until PayPal sandbox

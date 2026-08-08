@@ -48,10 +48,16 @@ reservation API can mirror it and tests need no network.
   `--remote` (e.g. `npx wrangler kv key list --namespace-id <id> --remote`) to
   inspect the real namespaces.
 - **Secrets** (Cloudflare Pages → Settings → Environment variables, never in git):
-  `RESEND_API_KEY` (set), `PAYPAL_CLIENT_ID`, `PAYPAL_SECRET` (pending)
-- **Build-time public var:** `PUBLIC_PAYPAL_CLIENT_ID` — empty until PayPal sandbox
-  creds arrive; without it the reserve buttons show the graceful "opening soon" state
-  and `/api/reservation` fails closed (500 "Payment verification unavailable").
+  `PAYPAL_SECRET` + `RESEND_API_KEY` (both set, sandbox). Set secrets via
+  `printf '%s' "$VAR" | npx wrangler pages secret put $VAR --project-name viceprint`
+  then **redeploy** (Pages snapshots env at deploy time). `PAYPAL_CLIENT_ID` +
+  `PUBLIC_PAYPAL_CLIENT_ID` (public sandbox ids) are in `wrangler.toml` `[vars]`.
+- **Build-time public var:** `PUBLIC_PAYPAL_CLIENT_ID` (sandbox, set). Verified in
+  production smoke tests (WI-9): reserve+refund E2E passed — real sandbox order
+  `3RC88821N5175933C` → captured 750.00 EUR → reserved → refunded (capture GET
+  shows `REFUNDED`); fake order → 400, tier amount mismatch → 400, re-cancel →
+  409, wrong email → 404; dev-mode `ALLOW_UNVERIFIED=true` reserve worked and
+  fail-closed without it.
 
 ### Launch blockers (spec §11) — do NOT go live before these clear
 

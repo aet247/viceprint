@@ -3,7 +3,8 @@ compatibility_date = "2026-08-04"
 pages_build_output_dir = "dist"
 
 [vars]
-PUBLIC_PAYPAL_CLIENT_ID = ""
+PUBLIC_PAYPAL_CLIENT_ID = "AYjUkFYPEc5VTYU-JeHnEfY1KI6Y-FRfZHIuk2SUasjn6NSg-IV9NPFh04JYBrR3I1MidR_2upMzMQYl"
+PAYPAL_CLIENT_ID = "AYjUkFYPEc5VTYU-JeHnEfY1KI6Y-FRfZHIuk2SUasjn6NSg-IV9NPFh04JYBrR3I1MidR_2upMzMQYl"
 BUSINESS_EMAIL = "onboarding@resend.dev"
 PAYPAL_ENV = "sandbox"
 

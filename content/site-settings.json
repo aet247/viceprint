@@ -3,5 +3,9 @@
   "socials": [],
   "shipWindow": "",
   "impressum": { "legalName": "", "address": "", "registration": "", "vatId": "", "email": "" },
-  "compliance": { "weeeNumber": "", "gpsrPerson": { "name": "", "address": "" } }
+  "compliance": {
+    "weeeNumber": "",
+    "gpsrPerson": { "name": "", "address": "" },
+    "gpsrStrategy": "Direct AliExpress dropship → VICEPRINT is EU importer (GPSR 2023/988 Art.16). Appoint EU Responsible Person service (€150–500/yr) for legal presence; carry RP+importer+manufacturer details on digital packing slip (Art.16(3)); obtain CE/WEEE/technical file from AliExpress seller. Fill weeeNumber + gpsrPerson once RP engaged and seller docs received."
+  }
 }

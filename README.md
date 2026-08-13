@@ -65,22 +65,29 @@ reservation API can mirror it and tests need no network.
 
 1. **PayPal live credentials** — ✅ DONE. `PAYPAL_ENV=live`, live `PAYPAL_CLIENT_ID`
    + `PUBLIC_PAYPAL_CLIENT_ID` in `wrangler.toml` `[vars]`, live `PAYPAL_SECRET`
-   set via Cloudflare secret. Live OAuth token verified (creds valid). **Remaining:
-   a real-money live smoke test (capture + refund) — owner action, see below.**
+    set via Cloudflare secret. Live OAuth token verified (creds valid). **Live
+    smoke test (capture + refund) POSTPONED by owner — will run later.**
 2. **Real domain + DNS** — ⏸ POSTPONED (B2). `astro.config.mjs` `site` still
    `https://viceprint.pages.dev`; custom domain later.
 3. **Impressum / privacy data** — ⏸ POSTPONED (B3). `content/site-settings.json`
    still empty; legal pages render entity-less until filled.
-4. **WEEE / GPSR data** — ⛔ BLOCKED (B4). Sourcing is now AliExpress dropship; an
-   AliExpress marketplace listing cannot supply EU GPSR manufacturer/responsible-person
-   data. Owner must obtain compliance data from the actual manufacturer/supplier.
+ 4. **WEEE / GPSR data** — 🟡 WORKAROUND IDENTIFIED (B4). Direct AliExpress dropship
+    makes VICEPRINT the EU importer/economic operator (GPSR Reg. 2023/988 Art. 16).
+    Compliant path: (a) appoint an EU Responsible Person / Authorised-Rep service
+    (€150–500/yr, e.g. Euverify/EuroComply) for the required EU legal presence + address;
+    (b) carry RP + importer + manufacturer details on the **digital packing slip /
+    accompanying document** (Art. 16(3)) since single dropship units can't be physically
+    labelled; (c) obtain CE/WEEE/technical file from the AliExpress seller. RP name/address
+    + WEEE number stay TODO until the service is engaged and seller docs received.
 5. **German copy review** — ✅ DONE (B5). Owner accepted the translation; `_meta.status`
    set to "Reviewed" and the "German translation pending" notices removed from
    `LegalContent.astro` + `de/legal/withdrawal.astro`.
-6. **Resend sending domain** — 🟡 PARTIAL (B6). `BUSINESS_EMAIL` set to
-   `digitalvalueLLC@proton.me` (display + send). Caveat: `proton.me` is not a
-   Resend-verifiable domain, so production *sending* still needs a verified domain
-   (test mode delivers to the owner only). Owner action: verify a domain in Resend.
+ 6. **Resend sending domain** — 🟡 PARTIAL (B6). `BUSINESS_EMAIL` set to
+    `digitalvalueLLC@proton.me` (display + send). Owner confirmed emails ARE delivering
+    (test mode, e.g. reservation-cancel mail ID `23c6a0c0-ddc9-4c28-a3b9-58f73214a5aa`,
+    Aug 08). Caveat: `proton.me` is not a Resend-verifiable domain, so production *sending
+    FROM* it still needs a verified domain (test mode delivers to the owner only). Owner
+    action: verify a domain in Resend for real production delivery.
 
 ### Editing content (no rebuilds needed for text)
 

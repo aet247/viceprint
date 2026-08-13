@@ -21,9 +21,10 @@ All copy lives in `src/i18n/en.json` / `src/i18n/de.json`; `src/i18n/t.ts` is a
 tiny lookup (`t(locale)`), components take a `locale` prop, pages compose via
 `src/components/Page.astro`. Prices, brand name and URLs are untranslated.
 
-`de.json` carries a `_meta.status` DRAFT flag — the German copy is a machine
-translation and needs a native German review before launch. Never ship `/de/`
-as finished German copy.
+`de.json` carries a `_meta.status` flag — the German copy was machine-translated
+and **accepted by the business owner** (reviewed 2026-08-13); the "German
+translation pending" notice was removed from all `/de/` legal pages. Treat as
+final launch copy unless the owner requests changes.
 
 ## API
 
@@ -48,28 +49,38 @@ reservation API can mirror it and tests need no network.
   `--remote` (e.g. `npx wrangler kv key list --namespace-id <id> --remote`) to
   inspect the real namespaces.
 - **Secrets** (Cloudflare Pages → Settings → Environment variables, never in git):
-  `PAYPAL_SECRET` + `RESEND_API_KEY` (both set, sandbox). Set secrets via
+  `PAYPAL_SECRET` (LIVE) + `RESEND_API_KEY` (both set). Set secrets via
   `printf '%s' "$VAR" | npx wrangler pages secret put $VAR --project-name viceprint`
-  then **redeploy** (Pages snapshots env at deploy time). `PAYPAL_CLIENT_ID` +
-  `PUBLIC_PAYPAL_CLIENT_ID` (public sandbox ids) are in `wrangler.toml` `[vars]`.
-- **Build-time public var:** `PUBLIC_PAYPAL_CLIENT_ID` (sandbox, set). Verified in
-  production smoke tests (WI-9): reserve+refund E2E passed — real sandbox order
+  then **redeploy** (Pages snapshots env at deploy time).   `PAYPAL_CLIENT_ID` +
+  `PUBLIC_PAYPAL_CLIENT_ID` (public LIVE ids) are in `wrangler.toml` `[vars]`;
+  `PAYPAL_ENV = "live"` selects the live PayPal API base.
+- **Build-time public var:** `PUBLIC_PAYPAL_CLIENT_ID` (live, set). Sandbox E2E
+  verified in production smoke tests (WI-9): reserve+refund passed — real sandbox order
   `3RC88821N5175933C` → captured 750.00 EUR → reserved → refunded (capture GET
   shows `REFUNDED`); fake order → 400, tier amount mismatch → 400, re-cancel →
   409, wrong email → 404; dev-mode `ALLOW_UNVERIFIED=true` reserve worked and
   fail-closed without it.
 
-### Launch blockers (spec §11) — do NOT go live before these clear
+### Launch blockers (spec §11) — status as of 2026-08-13
 
-1. **PayPal live credentials** (business account holder): set `PAYPAL_ENV=live`,
-   `PAYPAL_CLIENT_ID`, `PUBLIC_PAYPAL_CLIENT_ID`, `PAYPAL_SECRET`.
-2. **Real domain + DNS** (`astro.config.mjs` `site` + Pages custom domain; CNAME → `viceprint.pages.dev`).
-3. **Impressum / privacy data** — legal pages render nothing until
-   `content/site-settings.json` is filled (business name, address, contact, etc.).
-4. **WEEE / GPSR data** from the supplier (spec §4) — still TBD.
-5. **German copy review** — `de.json` is a DRAFT machine translation (`_meta.status`).
-6. **Resend sending domain** — test mode (`onboarding@resend.dev`) only delivers to
-   the account owner's address; verify a domain for real delivery.
+1. **PayPal live credentials** — ✅ DONE. `PAYPAL_ENV=live`, live `PAYPAL_CLIENT_ID`
+   + `PUBLIC_PAYPAL_CLIENT_ID` in `wrangler.toml` `[vars]`, live `PAYPAL_SECRET`
+   set via Cloudflare secret. Live OAuth token verified (creds valid). **Remaining:
+   a real-money live smoke test (capture + refund) — owner action, see below.**
+2. **Real domain + DNS** — ⏸ POSTPONED (B2). `astro.config.mjs` `site` still
+   `https://viceprint.pages.dev`; custom domain later.
+3. **Impressum / privacy data** — ⏸ POSTPONED (B3). `content/site-settings.json`
+   still empty; legal pages render entity-less until filled.
+4. **WEEE / GPSR data** — ⛔ BLOCKED (B4). Sourcing is now AliExpress dropship; an
+   AliExpress marketplace listing cannot supply EU GPSR manufacturer/responsible-person
+   data. Owner must obtain compliance data from the actual manufacturer/supplier.
+5. **German copy review** — ✅ DONE (B5). Owner accepted the translation; `_meta.status`
+   set to "Reviewed" and the "German translation pending" notices removed from
+   `LegalContent.astro` + `de/legal/withdrawal.astro`.
+6. **Resend sending domain** — 🟡 PARTIAL (B6). `BUSINESS_EMAIL` set to
+   `digitalvalueLLC@proton.me` (display + send). Caveat: `proton.me` is not a
+   Resend-verifiable domain, so production *sending* still needs a verified domain
+   (test mode delivers to the owner only). Owner action: verify a domain in Resend.
 
 ### Editing content (no rebuilds needed for text)
 

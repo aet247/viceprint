@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "NODE_OPTIONS=--max-old-space-size=2048 astro build",
     "preview": "astro preview",
     "check": "astro check",
     "og": "node scripts/raster-og.mjs",

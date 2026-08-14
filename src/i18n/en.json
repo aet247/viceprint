@@ -35,7 +35,7 @@
     "items": [
       { "title": "Pick a design", "text": "Choose from the in-app library or upload your own artwork." },
       { "title": "Position the finger", "text": "The sensor reads the nail shape and aligns automatically." },
-      { "title": "Print", "text": "Full color, fine detail, roughly 15 seconds a nail." },
+      { "title": "Print", "text": "Full color, fine detail, roughly 40 seconds a nail." },
       { "title": "Cure & done", "text": "Standard UV/LED lamp, dry to the touch in under a minute." }
     ]
   },
@@ -84,14 +84,16 @@
   "specs": {
     "eyebrow": "Hardware",
     "heading": "What's inside",
-    "sub": "Modeled on comparable machines — every figure is flagged for confirmation once a supplier is finalized.",
+    "sub": "Confirmed with our manufacturing partner for the first production batch.",
     "rows": [
-      { "label": "Print time", "value": "~15 sec / nail" },
-      { "label": "Screen", "value": "10.1\" touchscreen" },
-      { "label": "Connectivity", "value": "Wi-Fi" },
-      { "label": "Dimensions", "value": "310 × 195 × 560 mm" },
-      { "label": "Weight", "value": "~9.75 kg" },
-      { "label": "Power", "value": "24V DC adapter" }
+      { "label": "Print time", "value": "~40 sec / nail" },
+      { "label": "Resolution", "value": "2400 DPI" },
+      { "label": "Connectivity", "value": "Built-in Wi-Fi, app control" },
+      { "label": "Technology", "value": "Non-contact inkjet + AI surface recognition" },
+      { "label": "Power", "value": "DC 5V / 2A (USB / power bank)" },
+      { "label": "Colors", "value": "Gold / White" },
+      { "label": "Dimensions (packaging)", "value": "~40 × 50 × 60 cm" },
+      { "label": "Weight", "value": "~10.0 kg" }
     ]
   },
   "pricing": {
@@ -127,7 +129,7 @@
       { "q": "Is my deposit refundable?", "a": "Yes, in full, any time before your unit ships. No questions asked." },
       { "q": "When does it ship?", "a": "We'll confirm an estimated ship window once the first batch is finalized with our manufacturing partner. Every reservation holder gets that update by email before it's public." },
       { "q": "What's included with the machine?", "a": "The printer, power adapter, and starter or founder consumables kit depending on your tier — see the pricing cards above for the exact contents." },
-      { "q": "Do I need training to use it?", "a": "No specialist skill required — the touchscreen walks staff through design selection and placement. Founder-tier reservations include a live 1:1 onboarding call." },
+      { "q": "Do I need training to use it?", "a": "No specialist skill required — the app walks staff through design selection and placement. Founder-tier reservations include a live 1:1 onboarding call." },
       { "q": "Is the ink safe and certified?", "a": "Cosmetic-grade ink and CE-certified hardware, in line with EU requirements for salon equipment." },
       { "q": "How do I cancel a reservation?", "a": "A dedicated cancellation page ships with the live site — one form, no phone call required, refund initiated the same day. <a href=\"/legal/withdrawal\">Go to the withdrawal form</a>." }
     ]

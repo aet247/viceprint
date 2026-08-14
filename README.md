@@ -71,14 +71,11 @@ reservation API can mirror it and tests need no network.
    `https://viceprint.pages.dev`; custom domain later.
 3. **Impressum / privacy data** — ⏸ POSTPONED (B3). `content/site-settings.json`
    still empty; legal pages render entity-less until filled.
- 4. **WEEE / GPSR data** — 🟡 WORKAROUND IDENTIFIED (B4). Direct AliExpress dropship
-    makes VICEPRINT the EU importer/economic operator (GPSR Reg. 2023/988 Art. 16).
-    Compliant path: (a) appoint an EU Responsible Person / Authorised-Rep service
-    (€150–500/yr, e.g. Euverify/EuroComply) for the required EU legal presence + address;
-    (b) carry RP + importer + manufacturer details on the **digital packing slip /
-    accompanying document** (Art. 16(3)) since single dropship units can't be physically
-    labelled; (c) obtain CE/WEEE/technical file from the AliExpress seller. RP name/address
-    + WEEE number stay TODO until the service is engaged and seller docs received.
+ 4. **WEEE / GPSR data** — ✅ DONE (B4). Supplier GPSR + EU Responsible Person data
+    received and stored in `content/site-settings.json` `compliance` block (active: Changsha
+    yiliqi, EU RP PROCONSEIL FR / Paris; alt supplier Shenzhen Kixin, EU RP ORIENT CONSULTING
+    SL / Spain). Footer now renders the GPSR RP line. Machine specs updated to
+    supplier-confirmed values. **WEEE number still TODO** (not yet supplied by supplier).
 5. **German copy review** — ✅ DONE (B5). Owner accepted the translation; `_meta.status`
    set to "Reviewed" and the "German translation pending" notices removed from
    `LegalContent.astro` + `de/legal/withdrawal.astro`.

@@ -5,7 +5,52 @@
   "impressum": { "legalName": "", "address": "", "registration": "", "vatId": "", "email": "" },
   "compliance": {
     "weeeNumber": "",
-    "gpsrPerson": { "name": "", "address": "" },
-    "gpsrStrategy": "Direct AliExpress dropship → VICEPRINT is EU importer (GPSR 2023/988 Art.16). Appoint EU Responsible Person service (€150–500/yr) for legal presence; carry RP+importer+manufacturer details on digital packing slip (Art.16(3)); obtain CE/WEEE/technical file from AliExpress seller. Fill weeeNumber + gpsrPerson once RP engaged and seller docs received."
+    "productIdentifier": "1005010676565467-12000053160436908",
+    "manufacturer": {
+      "name": "Changsha yiliqi electronic technology co., ltd",
+      "address": "Room 804-806, Floor 8, Zhenghong City Time Commercial Plaza, No.1389 Leifeng Avenue, Jinshanqiao Street, Xiangjiang New District, Hunan Province (cluster registration)",
+      "email": "iiuiiubaoling@126.com",
+      "phone": "175731144145"
+    },
+    "gpsrPerson": {
+      "name": "PROCONSEIL FR",
+      "address": "8 bis rue Abel 75012 Paris, France",
+      "email": "SophieDupont@proconseilfr.com",
+      "phone": "780843245"
+    },
+    "suppliers": [
+      {
+        "manufacturer": {
+          "name": "Changsha yiliqi electronic technology co., ltd",
+          "address": "Room 804-806, Floor 8, Zhenghong City Time Commercial Plaza, No.1389 Leifeng Avenue, Jinshanqiao Street, Xiangjiang New District, Hunan Province (cluster registration)",
+          "email": "iiuiiubaoling@126.com",
+          "phone": "175731144145"
+        },
+        "gpsrPerson": {
+          "name": "PROCONSEIL FR",
+          "address": "8 bis rue Abel 75012 Paris, France",
+          "email": "SophieDupont@proconseilfr.com",
+          "phone": "780843245"
+        },
+        "productIdentifier": "1005010676565467-12000053160436908"
+      },
+      {
+        "manufacturer": {
+          "name": "Shenzhen Kixin Electronics Co., Ltd",
+          "address": "CN-China, Guangdong Province, Shenzhen City, Huaqiang Road, Huaqiang Electronics World, 10A194",
+          "email": "Ailin_xf@163.com",
+          "phone": "075583030546"
+        },
+        "gpsrPerson": {
+          "name": "ORIENT CONSULTING SL",
+          "address": "ES-AV. DE LA INDUSTRIA, 2, NV16, P.I.CANTUEÑA, FUENLABRADA",
+          "email": "info@orientconsulting.es",
+          "phone": "916422249",
+          "website": "www.orientconsulting.es"
+        },
+        "productIdentifier": "1005012598010144-12000058807978129"
+      }
+    ],
+    "gpsrStrategy": "Direct AliExpress dropship → VICEPRINT is EU importer (GPSR 2023/988 Art.16). Active supplier: Changsha yiliqi (item 1005010676565467), EU RP PROCONSEIL FR (Paris). RP + importer + manufacturer details carried on digital packing slip (Art.16(3)). WEEE number still TODO (not yet supplied)."
   }
 }

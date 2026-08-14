@@ -36,7 +36,7 @@
     "items": [
       { "title": "Design auswählen", "text": "Aus der In-App-Bibliothek wählen oder eigene Grafik hochladen." },
       { "title": "Finger positionieren", "text": "Der Sensor erfasst die Nagelform und richtet automatisch aus." },
-      { "title": "Drucken", "text": "Vollfarbe, feine Details, etwa 15 Sekunden pro Nagel." },
+      { "title": "Drucken", "text": "Vollfarbe, feine Details, etwa 40 Sekunden pro Nagel." },
       { "title": "Aushärten & fertig", "text": "Standard-UV/LED-Lampe, in unter einer Minute trocken." }
     ]
   },
@@ -85,14 +85,16 @@
   "specs": {
     "eyebrow": "Hardware",
     "heading": "Was drinsteckt",
-    "sub": "Angelehnt an vergleichbare Maschinen — jeder Wert ist zur Bestätigung markiert, sobald ein Lieferant feststeht.",
+    "sub": "Vom Fertigungspartner für die erste Produktionscharge bestätigt.",
     "rows": [
-      { "label": "Druckzeit", "value": "~15 Sek. pro Nagel" },
-      { "label": "Display", "value": "10,1\"-Touchscreen" },
-      { "label": "Konnektivität", "value": "Wi-Fi" },
-      { "label": "Abmessungen", "value": "310 × 195 × 560 mm" },
-      { "label": "Gewicht", "value": "~9,75 kg" },
-      { "label": "Stromversorgung", "value": "24V-DC-Netzteil" }
+      { "label": "Druckzeit", "value": "~40 Sek. pro Nagel" },
+      { "label": "Auflösung", "value": "2400 DPI" },
+      { "label": "Konnektivität", "value": "Integriertes Wi-Fi, App-Steuerung" },
+      { "label": "Technologie", "value": "Berührungsloser Tintenstrahl + KI-Oberflächenerkennung" },
+      { "label": "Stromversorgung", "value": "DC 5V / 2A (USB / Powerbank)" },
+      { "label": "Farben", "value": "Gold / Weiß" },
+      { "label": "Abmessungen (Verpackung)", "value": "~40 × 50 × 60 cm" },
+      { "label": "Gewicht", "value": "~10,0 kg" }
     ]
   },
   "pricing": {
@@ -128,7 +130,7 @@
       { "q": "Ist meine Anzahlung erstattbar?", "a": "Ja, vollständig, jederzeit bevor Ihr Gerät versendet wird. Ohne Wenn und Aber." },
       { "q": "Wann wird versendet?", "a": "Sobald die erste Charge mit unserem Fertigungspartner finalisiert ist, bestätigen wir ein voraussichtliches Versandfenster. Alle Reservierungshalter erhalten diese Aktualisierung per E-Mail, bevor sie öffentlich bekannt gegeben wird." },
       { "q": "Was ist im Lieferumfang enthalten?", "a": "Der Drucker, das Netzteil und das Starter- oder Founder-Verbrauchsmaterial-Kit je nach Tarif — die genauen Inhalte stehen in den Preiskarten oben." },
-      { "q": "Brauche ich Schulung für die Nutzung?", "a": "Keine Spezialkenntnisse nötig — der Touchscreen führt das Team durch Designauswahl und Positionierung. Founder-Tarife enthalten einen Live-1:1-Onboarding-Call." },
+      { "q": "Brauche ich Schulung für die Nutzung?", "a": "Keine Spezialkenntnisse nötig — die App führt das Team durch Designauswahl und Positionierung. Founder-Tarife enthalten einen Live-1:1-Onboarding-Call." },
       { "q": "Ist die Tinte sicher und zertifiziert?", "a": "Kosmetikgeeignete Tinte und CE-zertifizierte Hardware, konform mit den EU-Anforderungen für Salonausstattung." },
       { "q": "Wie storniere ich eine Reservierung?", "a": "Mit der Live-Site wird eine eigene Stornierungsseite ausgeliefert — ein Formular, kein Telefonat nötig, Erstattung am selben Tag. <a href=\"/legal/withdrawal\">Zum Stornierungsformular</a>." }
     ]

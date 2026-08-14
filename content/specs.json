@@ -1,10 +1,12 @@
 {
   "rows": [
-    { "label": "Print time", "value": "~15 sec / nail", "confirmed": false },
-    { "label": "Screen", "value": "10.1\" touchscreen", "confirmed": false },
-    { "label": "Connectivity", "value": "Wi-Fi", "confirmed": false },
-    { "label": "Dimensions", "value": "310 × 195 × 560 mm", "confirmed": false },
-    { "label": "Weight", "value": "~9.75 kg", "confirmed": false },
-    { "label": "Power", "value": "24V DC adapter", "confirmed": false }
+    { "label": "Print time", "value": "~40 sec / nail", "confirmed": true },
+    { "label": "Resolution", "value": "2400 DPI", "confirmed": true },
+    { "label": "Connectivity", "value": "Built-in Wi-Fi, app control", "confirmed": true },
+    { "label": "Technology", "value": "Non-contact inkjet + AI surface recognition", "confirmed": true },
+    { "label": "Power", "value": "DC 5V / 2A (USB / power bank)", "confirmed": true },
+    { "label": "Colors", "value": "Gold / White", "confirmed": true },
+    { "label": "Dimensions (packaging)", "value": "~40 × 50 × 60 cm", "confirmed": true },
+    { "label": "Weight", "value": "~10.0 kg", "confirmed": true }
   ]
 }

@@ -1,15 +1,20 @@
-# VICEPRINT — founder presale landing page
+# Automatic Nail Art Machine — founder presale landing page
 
-Single-page presale site for the VICEPRINT digital nail printer. Static-first
-Astro 5 build with React islands (audience tabs, contact form), deployed to
-Cloudflare Pages. EN at `/`, German at `/de/`.
+Single-page presale site for the digital nail printer. Static-first Astro 5 build
+with React islands (audience tabs, contact form), deployed to Cloudflare Pages.
+EN at `/`, German at `/de/`.
+
+> **Naming:** display brand is **Automatic Nail Art Machine** (renamed from
+> `VICEPRINT` on 2026-08-14). The domain, repo, Cloudflare project name and the
+> `viceprint-consent` localStorage key are intentionally still `viceprint`.
 
 ## Commands
 
 ```bash
 npm install --no-audit --no-fund     # 3.2 GB box: never parallel installs/builds
 NODE_OPTIONS=--max-old-space-size=768 npm run check   # astro check (TS)
-NODE_OPTIONS=--max-old-space-size=768 npm run build   # astro build → dist/
+npm run build                        # astro build → dist/  (NODE_OPTIONS memory
+                                     # flag is baked into the script — do not remove)
 npm run test                         # vitest (src/lib/contact.ts handler tests)
 npm run dev                          # astro dev (island hydration broken on this
                                      # toolchain — verify against dist/ build)
@@ -42,8 +47,22 @@ reservation API can mirror it and tests need no network.
 ## Deployment (live)
 
 - **Production:** https://viceprint.pages.dev — Cloudflare Pages project `viceprint`
-- **Repo:** github.com/aet247/viceprint (private). Push to `main`; deploy manually:
-  `npx wrangler pages deploy dist --project-name viceprint` (build first, see Commands)
+- **Repo:** github.com/aet247/viceprint (private).
+- **Deploy with Wrangler** (the reliable path — see gotcha below):
+  ```bash
+  export CLOUDFLARE_ACCOUNT_ID="59a7231016014670cd4b9f4cd0a17202"
+  export CLOUDFLARE_API_KEY="<global API key>"   # + CLOUDFLARE_EMAIL="aetcrypto@gmail.com"
+  # or: export CLOUDFLARE_API_TOKEN="<Pages:Edit token>"
+  npm run build
+  npx wrangler pages deploy dist --project-name viceprint
+  ```
+  Credentials are **never in the repo** — get a fresh Global API Key or an API Token
+  (Account: Cloudflare Pages → Edit) from the dashboard / owner. The key is rotated
+  periodically. Account ID `59a7231016014670cd4b9f4cd0a17202`.
+- ⚠️ **GitHub pushes do NOT reliably update the live site.** Cloudflare's git build can
+  OOM and silently keep serving the last good build. Always deploy `dist/` via Wrangler
+  (above). Hash URLs like `74a9bb90.viceprint.pages.dev` are fixed old snapshots — use
+  `viceprint.pages.dev`. See `AGENTS.md` for the full runbook.
 - **KV namespaces:** `RESERVATIONS` (`res-*` keys) + `LEADS` (contact leads) — IDs in `wrangler.toml`
   ⚠️ `wrangler kv key *` commands default to a **local simulation** — always pass
   `--remote` (e.g. `npx wrangler kv key list --namespace-id <id> --remote`) to

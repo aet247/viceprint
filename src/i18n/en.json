@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "VICEPRINT — Professional nail printing, reserved",
+    "title": "Automatic Nail Art Machine — Professional nail printing, reserved",
     "description": "A digital nail printer built for studios. Reserve your unit — 50% deposit or full founder prepay, both refundable until it ships."
   },
   "ui": {
@@ -181,7 +181,7 @@
     "impressum": "Impressum",
     "cookies": "Cookie policy",
     "withdrawal": "Cancel a reservation",
-    "bottom": "© {year} VICEPRINT. Presale only — no units currently in stock.",
+    "bottom": "© {year} Automatic Nail Art Machine. Presale only — no units currently in stock.",
     "specsNote": "All specs subject to change before final production."
   }
 }

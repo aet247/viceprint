@@ -1,7 +1,7 @@
 {
-  "_meta": { "status": "Reviewed — accepted by business owner", "reviewer": "VICEPRINT business owner" },
+  "_meta": { "status": "Reviewed — accepted by business owner", "reviewer": "Automatic Nail Art Machine business owner" },
   "meta": {
-    "title": "VICEPRINT — Professioneller Nageldruck, jetzt reservierbar",
+    "title": "Automatic Nail Art Machine — Professioneller Nageldruck, jetzt reservierbar",
     "description": "Ein digitaler Nageldrucker für Studios. Reservieren Sie Ihr Gerät — 50 % Anzahlung oder volle Founder-Vorauszahlung, beides bis zum Versand erstattbar."
   },
   "ui": {
@@ -182,7 +182,7 @@
     "impressum": "Impressum",
     "cookies": "Cookie-Richtlinie",
     "withdrawal": "Reservierung stornieren",
-    "bottom": "© {year} VICEPRINT. Nur Presale — aktuell keine Geräte auf Lager.",
+    "bottom": "© {year} Automatic Nail Art Machine. Nur Presale — aktuell keine Geräte auf Lager.",
     "specsNote": "Alle technischen Daten können sich vor der finalen Produktion ändern."
   }
 }

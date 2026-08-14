@@ -27,13 +27,13 @@ const CONTENT: Record<
   { title: string; description: string; sections: Section[] }
 > = {
   privacy: {
-    title: 'Privacy Policy — VICEPRINT',
-    description: 'How VICEPRINT collects, uses and protects your personal data.',
+    title: 'Privacy Policy — Automatic Nail Art Machine',
+    description: 'How Automatic Nail Art Machine collects, uses and protects your personal data.',
     sections: [
       {
         h: 'Controller',
         p: [
-          'VICEPRINT is the controller for the personal data processed on this site.',
+          'Automatic Nail Art Machine is the controller for the personal data processed on this site.',
           ...(businessEmail ? [`Contact: ${businessEmail}`] : []),
         ],
       },
@@ -82,8 +82,8 @@ const CONTENT: Record<
     ],
   },
   terms: {
-    title: 'Terms & Reservation Terms — VICEPRINT',
-    description: 'The reservation terms for VICEPRINT — a reservation is not a sale, and both tiers are refundable until shipping.',
+    title: 'Terms & Reservation Terms — Automatic Nail Art Machine',
+    description: 'The reservation terms for Automatic Nail Art Machine — a reservation is not a sale, and both tiers are refundable until shipping.',
     sections: [
       {
         h: 'A reservation is not a sale',
@@ -123,8 +123,8 @@ const CONTENT: Record<
     ],
   },
   cookies: {
-    title: 'Cookie Policy — VICEPRINT',
-    description: 'VICEPRINT uses essential cookies only.',
+    title: 'Cookie Policy — Automatic Nail Art Machine',
+    description: 'Automatic Nail Art Machine uses essential cookies only.',
     sections: [
       {
         h: 'Essential cookies only',
@@ -156,8 +156,8 @@ const titles: Record<string, { title: string; description: string }> = {
   terms: CONTENT.terms,
   cookies: CONTENT.cookies,
   impressum: {
-    title: 'Impressum — VICEPRINT',
-    description: 'Impressum — legal entity details for VICEPRINT.',
+    title: 'Impressum — Automatic Nail Art Machine',
+    description: 'Impressum — legal entity details for Automatic Nail Art Machine.',
   },
 };
 const page = titles[kind];

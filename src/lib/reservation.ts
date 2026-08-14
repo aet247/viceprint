@@ -198,10 +198,10 @@ function customerEmail(record: ReservationRecord): { subject: string; html: stri
       ? '<p>Your remaining EUR 749 balance will be invoiced by email once a ship date is confirmed (manual step for v1).</p>'
       : '';
   return {
-    subject: 'Your VICEPRINT reservation is confirmed',
+    subject: 'Your Automatic Nail Art Machine reservation is confirmed',
     html:
       `<p>Hi ${escapeHtml(record.company)},</p>` +
-      `<p>Your VICEPRINT reservation is confirmed.</p>` +
+      `<p>Your Automatic Nail Art Machine reservation is confirmed.</p>` +
       `<p><strong>Reference:</strong> ${escapeHtml(record.id)}<br>` +
       `<strong>Tier:</strong> ${TIER_LABELS[record.tier]}<br>` +
       `<strong>Amount received:</strong> EUR ${record.amount}</p>` +
@@ -215,9 +215,9 @@ function customerEmail(record: ReservationRecord): { subject: string; html: stri
 
 function businessEmail(record: ReservationRecord): { subject: string; html: string } {
   return {
-    subject: 'New VICEPRINT reservation',
+    subject: 'New Automatic Nail Art Machine reservation',
     html:
-      `<p>New VICEPRINT reservation</p>` +
+      `<p>New Automatic Nail Art Machine reservation</p>` +
       `<p><strong>Reference:</strong> ${escapeHtml(record.id)}<br>` +
       `<strong>Tier:</strong> ${TIER_LABELS[record.tier]}<br>` +
       `<strong>Company:</strong> ${escapeHtml(record.company)}<br>` +
@@ -250,16 +250,16 @@ async function sendCancelEmails(record: ReservationRecord, deps: ReservationDeps
   await deps.resend.emails.send({
     from: fromEmail,
     to: record.email,
-    subject: 'Your VICEPRINT reservation has been cancelled',
+    subject: 'Your Automatic Nail Art Machine reservation has been cancelled',
     html:
       `<p>Hi ${escapeHtml(record.company)},</p>` +
-      `<p>Your VICEPRINT reservation <strong>${escapeHtml(record.id)}</strong> has been cancelled and your payment of ` +
+      `<p>Your Automatic Nail Art Machine reservation <strong>${escapeHtml(record.id)}</strong> has been cancelled and your payment of ` +
       `EUR ${record.amount} is being refunded. The refund appears in your account within a few business days.</p>`,
   });
   await deps.resend.emails.send({
     from: fromEmail,
     to: fromEmail,
-    subject: 'VICEPRINT reservation cancelled',
+    subject: 'Automatic Nail Art Machine reservation cancelled',
     html:
       `<p>Reservation <strong>${escapeHtml(record.id)}</strong> (${escapeHtml(record.company)}, ` +
       `${escapeHtml(record.email)}) was cancelled — EUR ${record.amount} refunded.</p>`,

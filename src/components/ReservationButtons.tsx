@@ -63,7 +63,7 @@ export default function ReservationButtons({ tier, locale = 'en' }: Props) {
               purchase_units: [
                 {
                   amount: { value: AMOUNT[tier], currency_code: 'EUR' },
-                  description: `VICEPRINT reservation — ${tier === 'founder' ? 'Founder (full prepay)' : 'Reserve (50% deposit)'}`,
+                  description: `Automatic Nail Art Machine reservation — ${tier === 'founder' ? 'Founder (full prepay)' : 'Reserve (50% deposit)'}`,
                 },
               ],
             }),

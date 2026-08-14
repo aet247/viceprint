@@ -74,7 +74,7 @@ export async function handleContact(input: ContactInput, deps: ContactDeps): Pro
     await deps.resend.emails.send({
       from: deps.fromEmail,
       to: deps.fromEmail,
-      subject: 'New VICEPRINT lead',
+      subject: 'New Automatic Nail Art Machine lead',
       html,
     });
   } else {
